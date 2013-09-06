@@ -1,0 +1,168 @@
+html, body {
+  height: 100%;
+  color: #777;
+  background-image: url('/assets/grunge.jpg');
+  .wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    .logo {
+      font-size: 4.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+    header {
+      text-align: center;
+    }
+    .content {
+      margin: 0 auto;
+      padding: 20px 0 50px 0;
+    }
+  }
+  footer {
+    margin: -45px auto 0 auto;
+    padding-top: 5px;
+    text-align: center;
+    a {
+      &:hover { 
+        color: gray;
+      }
+    }  
+  }
+}
+
+.impact {
+  color: #333333;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.gothic {
+  color: #333333;
+  font-family: Century Gothic, sans-serif;
+}
+
+#camera {
+  position: relative;
+  -webkit-perspective: 800;
+  -webkit-perspective-origin: 50% 200px;
+  -moz-perspective: 800;
+  -moz-perspective-origin: 50% 200px;
+  -ms-perspective: 800;
+  -ms-perspective-origin: 50% 200px;
+  -o-perspective: 800;
+  -o-perspective-origin: 50% 200px;
+  
+  #cube {
+    position: relative;
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+    -webkit-transition: -webkit-transform 2s linear;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: -moz-transform 2s linear;
+    -moz-transform-style: preserve-3d;
+    -ms-transition: -ms-transform 2s linear;
+    -ms-transform-style: preserve-3d;
+    -o-transition: -o-transform 2s linear;
+    -o-transform-style: preserve-3d;
+    
+    .face {
+      position: absolute;
+      height: 400px;
+      width: 400px;
+      padding: 5px;
+      border: 20px solid #777;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing:    border-box;
+      -ms-box-sizing:     border-box;
+      -o-box-sizing:      border-box;
+      box-sizing:         border-box;
+      font-size: 400px;
+      line-height: .9;
+    }
+
+    .a { 
+      background-color: rgba(255,255,255, 1.0);
+      -webkit-transform: translateZ(200px);
+      -moz-transform: translateZ(200px);
+      -ms-transform: translateZ(200px);
+      -o-transform: translateZ(200px);
+    }
+
+    .b { 
+      background-color: rgba(255,255,255, 1.0);
+      -webkit-transform: rotateY(-90deg) translateZ(200px);
+      -moz-transform: rotateY(-90deg) translateZ(200px);
+      -ms-transform: rotateY(-90deg) translateZ(200px);
+      -o-transform: rotateY(-90deg) translateZ(200px);
+    }
+
+    .c { 
+      background-color: rgba(255,255,255, 1.0);
+      -webkit-transform: rotateY(180deg) translateZ(200px);
+      -moz-transform: rotateY(180deg) translateZ(200px);
+      -ms-transform: rotateY(180deg) translateZ(200px);
+      -o-transform: rotateY(180deg) translateZ(200px);
+    }
+
+    .d { 
+      background-color: rgba(255,255,255, 1.0);
+      -webkit-transform: rotateY(90deg) translateZ(200px);
+      -moz-transform: rotateY(90deg) translateZ(200px);
+      -ms-transform: rotateY(90deg) translateZ(200px);
+      -o-transform: rotateY(90deg) translateZ(200px);
+    }
+
+    .e { 
+      background-color: rgba(255,255,255, 1.0);
+      -webkit-transform: rotateX(90deg) translateZ(200px);
+      -moz-transform: rotateX(90deg) translateZ(200px);
+      -ms-transform: rotateX(90deg) translateZ(200px);
+      -o-transform: rotateX(90deg) translateZ(200px);
+    }
+
+    .f { 
+      background-color: rgba(255,255,255, 1.0);
+      -webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+      -moz-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+      -ms-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+      -o-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+    }
+  }
+}
+
+.cubeNav {
+  position: absolute;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  .debug_dump {
+    position: relative;
+    top: 500px;
+    left: -220px;
+  }
+}
+.up {
+  position: absolute;
+  top: -15%;
+  left: -3%;
+  max-width: 40px;
+}
+.right {
+  position: absolute;
+  top: 29%;
+  left: 43%;
+  max-height: 40px;
+}
+.down {
+  position: absolute;
+  top: 74%;
+  left: -3%;
+  max-width: 40px;
+}
+.left {
+  position: absolute;
+  top: 29%;
+  left: -47%;
+  max-height: 40px;
+}
