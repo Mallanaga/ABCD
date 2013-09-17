@@ -6,7 +6,8 @@ gem 'rails', '3.2.12'
 gem 'thin'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.1'
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails', '~> 3.2.3'
+gem 'haml'
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'ckeditor'
@@ -22,7 +23,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
   gem 'annotate'
-  gem 'haml'
 end
 
 group :production do
