@@ -25,13 +25,13 @@ $(document).ready(function() {
   }, false);
   $(document).on('click', 'img', function(e) {
     switch($(this).attr('class')) {
-      case 'left': // left
+      case 'cube-arrow pull-left left-btn': // left
         yAngle -= 90;
         break;
     //  case 'up': // up
     //    xAngle += 90;
     //    break;
-      case 'right': // right
+      case 'cube-arrow pull-right right-btn': // right
         yAngle += 90;
         break;
     //  case 'down': // down
@@ -54,6 +54,9 @@ $(document).ready(function() {
 
 function cubePosition() {
   $('#camera').css({
-    'top' : $(window).height() / 2 - 300
+    'top' : $(window).height() / 2 - 340
+  });
+  $('.cubeNav').css({
+    'top' : $(window).height() / 2 - 560
   });
 }

@@ -1,0 +1,29 @@
+<% provide(:title, @category) %>
+<div class="headercontent">
+  <div class="hero-unit">
+    <h1><%= @category.capitalize %></h1>
+    <p></p>
+    <%= link_to image_tag('RSS.png'), posts_url(format: 'atom'), target: '_blank', id: 'rss', title: 'Atom/RSS feed' %>
+  </div>
+  
+  <div class="row">
+    <div class="span4 content-block widget widget_twitter_timeline">
+      <div class="block-content">
+        <iframe id="twitter-widget-0" src="http://platform.twitter.com/widgets/tweet_button.html?url=https://twitter.com/ecorebox" class="twitter-timeline twitter-timeline-rendered" scrolling="no" frameborder="0" allowtransparency="true" title="Twitter Timeline Widget" style="border: none; max-width: 100%; min-width: 180px;" width="320" height="400"></iframe>
+      </div>
+      <div class="block-content">
+        <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fecoreboxllc&amp;width=300&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;show_border=false&amp;header=false&amp;force_wall=false" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 300px;  height: 300px; background: #fff"></iframe>
+      </div>
+    </div>
+    <div class="span8">
+      <% if current_user && current_user.admin? %>
+        <%= link_to "Post New Entry", new_post_path, class: "btn" %>
+      <% end %>
+      <%= render @posts %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.nav-pills li a.blog').addClass('active');
+</script>

@@ -1,0 +1,14 @@
+= render 'layouts/error_messages', object: f.object
+
+.form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+.form-group
+  = f.label :summary, 'Summary (if blank, Content will just be summarized)'
+  = f.text_field :summary, class: 'form-control'
+.form-group
+  = f.label :content
+  = f.cktext_area :content, ckeditor: {}, class: 'form-control'
+.form-group
+  = f.label :category_tokens, 'Categories'
+  = f.text_field :category_tokens, data: {load: @entry.categories}, class: 'form-control'

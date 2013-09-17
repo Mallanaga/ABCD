@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.tokeninput
+// Include all twitter's javascripts
+//= require twitter/bootstrap
+//= require ckeditor/init
 //= require_tree .

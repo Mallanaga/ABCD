@@ -6,7 +6,7 @@ class Entry < ActiveRecord::Base
   attr_reader :category_tokens
 
   belongs_to :user
-  has_many :tags, dependent: :destroy
+  has_many :tags, as: :taggable, dependent: :destroy
   has_many :categories, through: :tags
 
   validates :content, presence: true

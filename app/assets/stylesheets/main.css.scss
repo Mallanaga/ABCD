@@ -1,57 +1,60 @@
 html, body {
   height: 100%;
-  color: #777;
-  background-image: url('/assets/grunge.jpg');
-  .wrapper {
-    min-height: 100%;
-    overflow: hidden;
-    .logo {
-      font-size: 4.5em;
-      font-weight: bold;
-      text-align: center;
-    }
-    header {
-      text-align: center;
-    }
-    .content {
-      margin: 0 auto;
-      padding: 20px 0 50px 0;
-    }
-  }
+  .wrapper { min-height: 100%; }
+  header {  }
   footer {
-    margin: -45px auto 0 auto;
-    padding-top: 5px;
-    text-align: center;
-    a {
-      &:hover { 
-        color: gray;
-      }
-    }  
+    margin: -72px auto 0 auto;
+  }
+  .content {
+    padding-bottom: 90px;
   }
 }
 
+
+body {
+  padding-top: 70px;
+}
+
 .impact {
-  color: #333333;
   font-family: Impact, Charcoal, sans-serif;
 }
 
 .gothic {
-  color: #333333;
   font-family: Century Gothic, sans-serif;
+}
+
+.flat_link {
+  &:link { // unvisited links
+    color: #333;
+    text-decoration: none;
+  }    
+  &:visited { // visited links
+    color: #333;
+    text-decoration: none;
+  }
+  &:hover { // user hovers
+    color: #333;
+    text-decoration: none;
+  } 
+  &:active { // active links
+    color: #333;
+    text-decoration: none;
+  }  
 }
 
 #camera {
   position: relative;
-  -webkit-perspective: 800;
+  -webkit-perspective: 800px;
   -webkit-perspective-origin: 50% 200px;
-  -moz-perspective: 800;
+  -moz-perspective: 800px;
   -moz-perspective-origin: 50% 200px;
-  -ms-perspective: 800;
+  -ms-perspective: 800px;
   -ms-perspective-origin: 50% 200px;
-  -o-perspective: 800;
+  -o-perspective: 800px;
   -o-perspective-origin: 50% 200px;
   
   #cube {
+    
     position: relative;
     margin: 0 auto;
     height: 400px;
@@ -70,7 +73,7 @@ html, body {
       height: 400px;
       width: 400px;
       padding: 5px;
-      border: 20px solid #777;
+      border: 20px solid #333;
       text-align: center;
       -webkit-box-sizing: border-box;
       -moz-box-sizing:    border-box;
@@ -132,37 +135,20 @@ html, body {
 }
 
 .cubeNav {
-  position: absolute;
-  left: 50%;
+  position: relative;
+  margin: 5px auto;
   width: 640px;
-  height: 640px;
   .debug_dump {
     position: relative;
-    top: 500px;
-    left: -220px;
+    top: 340px;
+  }
+  .cube-arrow {
+    max-height: 40px;
   }
 }
-.up {
-  position: absolute;
-  top: -15%;
-  left: -3%;
-  max-width: 40px;
-}
-.right {
-  position: absolute;
-  top: 29%;
-  left: 43%;
-  max-height: 40px;
-}
-.down {
-  position: absolute;
-  top: 74%;
-  left: -3%;
-  max-width: 40px;
-}
-.left {
-  position: absolute;
-  top: 29%;
-  left: -47%;
-  max-height: 40px;
+
+#rss img {
+  position: relative;
+  top: -4px;
+  max-height: 26px;
 }

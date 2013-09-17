@@ -1,0 +1,18 @@
+- provide(:title, @entry.title)
+%h1= @entry.title
+%p
+  %small
+    - if @entry.updated_at > @entry.created_at
+      updated
+      = time_ago_in_words(@entry.updated_at)
+      ago
+    - else
+      posted
+      = time_ago_in_words(@entry.created_at)
+      ago
+.row
+  .col-xs-12.col-md-10= raw @entry.content
+  .col-xs-6.col-md-2= render @categories
+
+:javascript
+  $('li.blog').addClass('active');

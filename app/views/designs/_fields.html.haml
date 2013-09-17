@@ -1,0 +1,20 @@
+= render 'layouts/error_messages', object: f.object
+
+.form-group
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+.form-group
+  = f.label :published_at
+  = f.date_select :published_at, class: 'form-control'
+.form-group
+  = f.label :description
+  = f.text_area :description, class: 'form-control'
+.form-group
+  = f.label :url
+  = f.text_field :url, class: 'form-control'
+.form-group
+  = f.label :photo_url
+  = f.text_field :photo_url, class: 'form-control'
+.form-group
+  = f.label :category_tokens, 'Categories'
+  = f.text_field :category_tokens, data: {load: @design.categories}, class: 'form-control'

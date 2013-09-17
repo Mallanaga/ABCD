@@ -1,0 +1,6 @@
+%div
+  %h3= link_to design.name, design
+  %small
+    published on
+    = design.published_at
+  %p= raw truncate(design.description, length: 140, separator: ' ')

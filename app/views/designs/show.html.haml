@@ -1,0 +1,18 @@
+- provide(:title, @design.name)
+%h1= @design.name
+%p
+  %small
+    - if @design.updated_at > @design.created_at
+      updated
+      = time_ago_in_words(@design.updated_at)
+      ago
+    - else
+      posted
+      = time_ago_in_words(@design.created_at)
+      ago
+.row
+  .col-xs-12.col-md-10= raw @design.description
+  .col-xs-6.col-md-2= render @categories
+
+:javascript
+  $('li.designs').addClass('active');

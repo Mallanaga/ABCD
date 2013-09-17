@@ -15,5 +15,9 @@ class SessionsController < ApplicationController
     sign_out_user
     redirect_to root_url
   end
+
+  def new
+    @title = 'Log in'
+  end
   
 end

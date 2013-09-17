@@ -1,0 +1,7 @@
+%div
+  %h3= link_to entry.title, entry
+  %small
+    posted
+    = time_ago_in_words(entry.created_at)
+    ago...
+  %p= raw truncate(entry.content, length: 140, separator: ' ')

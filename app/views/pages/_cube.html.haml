@@ -1,0 +1,17 @@
+%div#camera
+  %div#cube
+    %div.face.a
+      = link_to 'A', about_path, class: 'flat_link', title: 'About'
+    %div.face.b
+      = link_to 'B', entries_path, class: 'flat_link', title: 'Blog'
+    %div.face.c
+      = link_to 'C', contact_path, class: 'flat_link', title: 'Contact'
+    %div.face.d
+      = link_to 'D', designs_path, class: 'flat_link', title: 'Designs'
+    %div.face.e
+      E
+    %div.face.f
+      F
+%div.cubeNav
+  = image_tag('left.png', alt: 'Left', class: 'cube-arrow pull-left left-btn')
+  = image_tag('right.png', alt: 'Right', class: 'cube-arrow pull-right right-btn')

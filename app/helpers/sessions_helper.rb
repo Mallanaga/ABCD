@@ -7,6 +7,10 @@ module SessionsHelper
     end
   end
 
+  def admin?
+    !current_user.nil?  && current_user.id == 1
+  end
+
   def sign_in_user(user)
     cookies.permanent[:remember_token] = user.remember_token
     self.current_user = user

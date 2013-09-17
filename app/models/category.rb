@@ -2,7 +2,8 @@ class Category < ActiveRecord::Base
   attr_accessible :name
   
   has_many :tags, dependent: :destroy
-  has_many :entries, through: :tags
+  has_many :entries, through: :tags, source: :taggable, source_type: 'Entry'
+  has_many :designs, through: :tags, source: :taggable, source_type: 'Design'
 
   def self.tokens(query)
     filter_query = query.gsub(/[^a-zA-Z&\s]/, '')

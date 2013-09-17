@@ -1,0 +1,96 @@
+%header
+  %nav.navbar.navbar-default.navbar-fixed-top{role: 'navigation'}
+    %div.container
+      // Brand and toggle get grouped for better mobile display
+      %div.navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to 'Alphabetic Design', root_url, class: 'navbar-brand impact'
+
+      // Collect the nav links, forms, and other content for toggling
+      %div.collapse.navbar-collapse.navbar-ex1-collapse
+        %ul.nav.navbar-nav
+          %li.blog
+            = link_to 'Blog', entries_url
+          %li.designs
+            = link_to 'Designs', designs_url
+        %form.navbar-form.navbar-left{role:'search'}
+          %div.form-group
+            %input.form-control{type: 'text', placeholder: 'Search'}
+          %button.btn.btn-default{type: 'submit'} Submit
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            %a.dropdown-toggle{href: '#', 'data-toggle' => 'dropdown'}
+              Actions
+              %b.caret
+            %ul.dropdown-menu
+              - if controller_name == 'pages'
+                - if signed_in?
+                  %li
+                    = link_to 'Add comment', '#'
+                  %li.divider
+              - elsif controller_name == 'entries'
+                - if action_name == 'index'
+                  - if admin?
+                    %li
+                      = link_to 'New entry', new_entry_path
+                  - if signed_in?
+                    %li
+                      = link_to 'Add comment', '#'
+                    %li.divider
+                - elsif action_name == 'show'
+                  - if admin?
+                    %li
+                      = link_to "Edit entry", edit_entry_path
+                    %li
+                      = link_to "Delete entry", @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
+                  - if signed_in?
+                    %li
+                      = link_to 'Add comment', '#'
+                    %li.divider
+                - elsif action_name == 'edit'
+                  - if admin?
+                    %li
+                      = link_to "Delete entry", @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
+                    %li.divider
+              - elsif controller_name == 'designs'
+                - if action_name == 'index'
+                  - if admin?
+                    %li
+                      = link_to 'New design', new_design_path
+                  - if signed_in?
+                    %li
+                      = link_to 'Add comment', '#'
+                    %li.divider
+                - elsif action_name == 'show'
+                  - if admin?
+                    %li
+                      = link_to "Edit design", edit_design_path
+                    %li
+                      = link_to "Delete design", @design, method: :delete, data: { confirm: "You're sure you want to DELETE the design '#{@design.name}'?" }
+                  - if signed_in?
+                    %li
+                      = link_to 'Add comment', '#'
+                    %li.divider
+                - elsif action_name == 'edit'
+                  - if admin?
+                    %li
+                      = link_to "Delete design", @design, method: :delete, data: { confirm: "You're sure you want to DELETE the design '#{@design.name}'?" }
+                    %li.divider
+              - elsif controller_name == 'users'
+                %li
+                  = link_to 'User action', '#'
+                %li.divider
+              %li
+                - if signed_in?
+                  = link_to "Log out", signout_path, method: "delete"
+                - else
+                  = link_to "Log in", signin_path
+
+
+
+
+                  

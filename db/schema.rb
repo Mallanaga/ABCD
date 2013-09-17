@@ -11,12 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906224555) do
+ActiveRecord::Schema.define(:version => 20130916210322) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "designs", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.string   "photo_url"
+    t.date     "published_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "entries", :force => true do |t|
@@ -32,14 +58,14 @@ ActiveRecord::Schema.define(:version => 20130906224555) do
   add_index "entries", ["updated_at"], :name => "index_entries_on_updated_at"
 
   create_table "tags", :force => true do |t|
-    t.integer  "entry_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
     t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "tags", ["category_id"], :name => "index_tags_on_category_id"
-  add_index "tags", ["entry_id"], :name => "index_tags_on_entry_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   before_filter :correct_user,       only: [:edit, :update, :destroy]
 
   def create
-    @entry = current_user.entrys.build(params[:entry])
+    @entry = current_user.entries.build(params[:entry])
     if @entry.save
       flash[:success] = "Entry created!"
       redirect_to entries_path
@@ -20,14 +20,15 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    @title = 'Edit Entry'
     @entry = Entry.find(params[:id])
   end
 
   def feed
     # this will be the name of the feed displayed on a feed reader
-    @title = "ABCD"
+    @title = 'ABCD'
     # the blog entries
-    @entries = Entry.limit(10)
+    @entries = Entry.limit(20)
     # this will be the feed's update timestamp
     @updated = @entries.first.updated_at unless @entries.empty?
 
@@ -40,10 +41,12 @@ class EntriesController < ApplicationController
   end
 
   def index
+    @title = 'Blog'
     @entries = Entry.all
   end
 
   def new
+    @title = 'New Entry'
     @entry = Entry.new
   end
 

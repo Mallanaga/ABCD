@@ -58,5 +58,9 @@ module ABCD
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators.template_engine :haml
+
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end

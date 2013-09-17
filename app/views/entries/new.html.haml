@@ -1,0 +1,11 @@
+-provide(:title, @title)
+
+%h1= @title
+= form_for @entry, html: {role: 'form'} do |f| 
+  = render 'fields', f: f 
+  = f.submit 'Submit entry', class: 'btn btn-primary'
+  \-or-
+  = f.submit 'Cancel', data: { confirm: 'All changes will be lost.  Are you sure?' }, class: 'btn btn-default btn-sm'
+
+:javascript
+  $('li.blog').addClass('active');
