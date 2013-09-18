@@ -1,6 +1,14 @@
 - provide(:title, @title)
 
-%h1 Designs
+.row
+  .col-xs-12.col-md-9
+    %h1 Ideas, all the way to XYZ
+  .col-xs-4.col-md-3
+    .pull-right
+      = link_to image_tag('hold.gif'), feed_url, target: '_blank', id: 'rss', title: 'Atom/RSS feed'
+      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
+      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
+      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 .row
   .col-xs-12.col-md-8
     = render @designs

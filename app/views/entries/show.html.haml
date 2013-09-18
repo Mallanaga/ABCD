@@ -1,5 +1,12 @@
 - provide(:title, @entry.title)
-%h1= @entry.title
+.row
+  .col-xs-12.col-md-9
+    %h1 %h1= @entry.title
+  .col-xs-4.col-md-3
+    .pull-right
+      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
+      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
+      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 %p
   %small
     - if @entry.updated_at > @entry.created_at

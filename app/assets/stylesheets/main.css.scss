@@ -148,7 +148,34 @@ body {
 }
 
 #rss img {
-  position: relative;
-  top: -4px;
-  max-height: 26px;
+  margin-top: 20px;
+  width: 40px;
+  background: url('/assets/social.png') 0px 0px;
+  &:hover {
+    background: url('/assets/social.png') 0px -40px;
+  }
+}
+#facebook img {
+  margin-top: 20px;
+  width: 40px;
+  background: url('/assets/social.png') 120px 0px;
+  &:hover {
+    background: url('/assets/social.png') 120px -40px;
+  }
+}
+ #twitter img{
+  margin-top: 20px;
+  width: 40px;
+  background: url('/assets/social.png') 80px 0px;
+  &:hover {
+    background: url('/assets/social.png') 80px -40px;
+  }
+}
+#reddit img {
+  margin-top: 20px;
+  width: 40px;
+  background: url('/assets/social.png') 40px 0px;
+  &:hover {
+    background: url('/assets/social.png') 40px -40px;
+  }
 }
