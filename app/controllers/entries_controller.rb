@@ -6,16 +6,16 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.build(params[:entry])
     if @entry.save
-      flash[:success] = "Entry created!"
+      flash[:success] = 'Entry created'
       redirect_to entries_path
     else
-      flash[:error] = "Something went wrong there... try again."
+      flash[:error] = 'Something went wrong there... try again'
     end
   end
 
   def destroy
     Entry.find(params[:id]).destroy
-    flash[:success] = "Entry deleted!"
+    flash[:success] = 'Entry deleted'
     redirect_to entries_path
   end
 
@@ -26,9 +26,9 @@ class EntriesController < ApplicationController
 
   def feed
     # this will be the name of the feed displayed on a feed reader
-    @title = 'ABCD'
+    @title = 'ABC D'
     # the blog entries
-    @entries = Entry.limit(20)
+    @entries = Entry.limit(10)
     # this will be the feed's update timestamp
     @updated = @entries.first.updated_at unless @entries.empty?
 
@@ -36,13 +36,13 @@ class EntriesController < ApplicationController
       format.html
       format.atom { render layout: false }
       # we want the RSS feed to redirect permanently to the ATOM feed
-      format.rss { redirect_to entries_path(format: :atom), status: :moved_permanently }
+      format.rss { redirect_to feed_path, status: :moved_permanently }
     end
   end
 
   def index
     @title = 'Blog'
-    @entries = Entry.all
+    @entries = Entry.page(params[:page]).per(10)
   end
 
   def new
@@ -58,10 +58,10 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update_attributes(params[:entry])
-      flash[:success] = "Entry updated!"
+      flash[:success] = 'Entry updated'
       redirect_to @entry
     else
-      flash[:error] = "Something went wrong there... try again."
+      flash[:error] = 'Something went wrong there... try again'
       render 'entries/edit'
     end
   end
@@ -69,7 +69,7 @@ class EntriesController < ApplicationController
   private
 
     def check_for_cancel
-      if params[:commit] == "Cancel"
+      if params[:commit] == 'Cancel'
         redirect_to entries_path
       end
     end

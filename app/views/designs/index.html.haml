@@ -5,5 +5,8 @@
   .col-xs-12.col-md-8
     = render @designs
   .col-xs-4.col-md-4
+
+= paginate @designs
+
 :javascript
   $('li.designs').addClass('active');

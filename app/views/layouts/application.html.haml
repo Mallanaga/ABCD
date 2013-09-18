@@ -7,8 +7,8 @@
     = csrf_meta_tags
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
     = render 'layouts/shim'
-    = auto_discovery_link_tag :atom, '/blog.atom'
-    = auto_discovery_link_tag :rss, '/blog.rss'
+    = auto_discovery_link_tag :atom, '/feed'
+    = auto_discovery_link_tag :rss, '/feed'
   %body
     .wrapper
       = render 'layouts/header'

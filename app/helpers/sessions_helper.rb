@@ -11,7 +11,7 @@ module SessionsHelper
     !current_user.nil?  && current_user.id == 1
   end
 
-  def sign_in_user(user)
+  def sign_in(user)
     cookies.permanent[:remember_token] = user.remember_token
     self.current_user = user
   end
@@ -23,7 +23,7 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to signin_url, notice: "Please sign in."
+      redirect_to signin_url, notice: 'Please sign in'
     end
   end
 

@@ -35,7 +35,7 @@ class DesignsController < ApplicationController
 
   def index
     @title = 'Designs'
-    @designs = Design.all
+    @designs = Design.page(params[:page]).per(10)
   end
 
   def update

@@ -12,7 +12,8 @@
       ago
 .row
   .col-xs-12.col-md-10= raw @design.description
-  .col-xs-6.col-md-2= render @categories
+  .col-xs-6.col-md-2
+    %ul= render @categories
 
 :javascript
   $('li.designs').addClass('active');

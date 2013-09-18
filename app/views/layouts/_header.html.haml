@@ -17,10 +17,10 @@
             = link_to 'Blog', entries_url
           %li.designs
             = link_to 'Designs', designs_url
-        %form.navbar-form.navbar-left{role:'search'}
+        = form_tag find_path, method: "get", class: 'navbar-form navbar-left', role: 'search' do
           %div.form-group
-            %input.form-control{type: 'text', placeholder: 'Search'}
-          %button.btn.btn-default{type: 'submit'} Submit
+            = text_field_tag :find, '', placeholder: 'Find tags', class: 'form-control'
+          = submit_tag 'Find', class: 'btn btn-default'
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{href: '#', 'data-toggle' => 'dropdown'}
@@ -44,9 +44,9 @@
                 - elsif action_name == 'show'
                   - if admin?
                     %li
-                      = link_to "Edit entry", edit_entry_path
+                      = link_to 'Edit entry', edit_entry_path
                     %li
-                      = link_to "Delete entry", @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
+                      = link_to 'Delete entry', @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
                   - if signed_in?
                     %li
                       = link_to 'Add comment', '#'
@@ -54,7 +54,7 @@
                 - elsif action_name == 'edit'
                   - if admin?
                     %li
-                      = link_to "Delete entry", @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
+                      = link_to 'Delete entry', @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
                     %li.divider
               - elsif controller_name == 'designs'
                 - if action_name == 'index'
@@ -70,7 +70,7 @@
                     %li
                       = link_to "Edit design", edit_design_path
                     %li
-                      = link_to "Delete design", @design, method: :delete, data: { confirm: "You're sure you want to DELETE the design '#{@design.name}'?" }
+                      = link_to 'Delete design', @design, method: :delete, data: { confirm: "You're sure you want to DELETE the design '#{@design.name}'?" }
                   - if signed_in?
                     %li
                       = link_to 'Add comment', '#'
@@ -78,19 +78,34 @@
                 - elsif action_name == 'edit'
                   - if admin?
                     %li
-                      = link_to "Delete design", @design, method: :delete, data: { confirm: "You're sure you want to DELETE the design '#{@design.name}'?" }
+                      = link_to 'Delete design', @design, method: :delete, data: { confirm: "You're sure you want to DELETE the design '#{@design.name}'?" }
                     %li.divider
               - elsif controller_name == 'users'
-                %li
-                  = link_to 'User action', '#'
-                %li.divider
+                - if action_name == 'edit'
+                  - if current_user? @user
+                    %li
+                      = link_to 'Delete user', @user, method: :delete, data: { confirm: "You're sure you want to DELETE yourself, #{@user.first_name}?  You can't undo this..." }
+                    %li.divider
+                - elsif action_name == 'show'
+                  - if current_user? @user
+                    %li
+                      = link_to "Edit profile", edit_user_path
+                    %li.divider
+                - elsif action_name == 'index'
+                  - if admin?
+                    %li
+                      = link_to "Add user", new_user_path
+                    %li.divider
+              - elsif controller_name == 'categories'
+                - if action_name == 'show'
+                  - if admin?
+                    %li
+                      = link_to "Add to blog", new_entry_path
+                    %li
+                      = link_to "Add to designs", new_design_path
+                    %li.divider
               %li
                 - if signed_in?
-                  = link_to "Log out", signout_path, method: "delete"
+                  = link_to 'Log out', signout_path, method: 'delete'
                 - else
-                  = link_to "Log in", signin_path
-
-
-
-
-                  
+                  = link_to 'Log in', signin_path

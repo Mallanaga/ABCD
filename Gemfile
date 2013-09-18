@@ -12,7 +12,10 @@ gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootst
 gem 'font-awesome-rails'
 gem 'ckeditor'
 gem 'carrierwave'
-gem 'mini_magick', github: 'minimagick/minimagick', ref: '6d0f8f9'
+gem 'fog'
+gem 'mini_magick', github: 'minimagick/minimagick', ref: 'de72f6c83506059b3bb213ef19134f02f9404fcc'
+gem 'kaminari'
+gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap', ref: '1271c3a'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

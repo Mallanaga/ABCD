@@ -1,6 +1,16 @@
 class CategoriesController < ApplicationController
 
-    def index
+  def find
+    @tag = Category.find_by_name(params[:find].downcase)
+    if @tag
+      redirect_to @tag
+    else
+      flash[:error] = "Nothing with '#{params[:find]}'. Try one of these"
+      redirect_to categories_url
+    end
+  end
+
+  def index
     @categories = Category.order(:name)
     respond_to do |format|
       format.html
@@ -9,8 +19,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find_by_id(params[:id]).name
-    @posts = Category.find(params[:id]).posts
+    @category = Category.find(params[:id]).name
+    @entries = Category.find(params[:id]).entries
+    @designs = Category.find(params[:id]).designs
   end
   
 end

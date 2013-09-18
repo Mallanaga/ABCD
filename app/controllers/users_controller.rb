@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user,    only: [:index, :edit, :update, 
+  before_filter :signed_in_user,      only: [:index, :edit, :update, 
                                            :show, :destroy]
-  before_filter :correct_user,      only: [:edit, :update, :destroy]
+  before_filter :check_for_cancel,    only: [:update]
+  before_filter :correct_user,        only: [:edit, :update, :destroy]
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "User created."
+      flash[:success] = 'User created'
+      sign_in @user
       redirect_to root_path
     else
       render 'users/new'
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = 'User destroyed'
     redirect_to users_url
   end
 
@@ -27,7 +29,7 @@ class UsersController < ApplicationController
 
   def index
     @title = 'Users'
-    @users = User.page(params[:page]).per(10)
+    @users = User.page(params[:page]).per(40)
   end
 
   def new
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      flash[:success] = "User updated"
+      flash[:success] = 'User updated'
       sign_in @user
       redirect_to @user
     else
@@ -50,7 +52,14 @@ class UsersController < ApplicationController
   end
 
   private
-  
+    
+    def check_for_cancel
+      @user = User.find(params[:id])
+      if params[:commit] == "Cancel"
+        redirect_to @user
+      end
+    end
+
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)

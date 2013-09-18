@@ -1,12 +1,14 @@
 - provide(:title, @title)
 
 %h1
-  = link_to image_tag('RSS.png'), entries_url(format: 'atom'), target: '_blank', id: 'rss', title: 'Atom/RSS feed'
+  = link_to image_tag('RSS.png'), feed_url, target: '_blank', id: 'rss', title: 'Atom/RSS feed'
   Entries
 .row
   .col-xs-12.col-md-8
     = render @entries
   .col-xs-4.col-md-4
+
+= paginate @entries
 
 :javascript
   $('li.blog').addClass('active');

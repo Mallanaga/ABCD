@@ -3,10 +3,14 @@ ABCD::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :users
-  resources :sessions,          only: [:new, :create, :destroy]
-  resources :entries,           path: :blog, defaults: { format: 'html'}
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :entries, path: :blog do
+    get 'page/:page', action: :index, on: :collection
+  end
   resources :categories
-  resources :designs
+  resources :designs do
+    get 'page/:page', action: :index, on: :collection
+  end
 
   root                          to: 'pages#home'
   match '/about',               to: 'pages#about'
@@ -14,7 +18,9 @@ ABCD::Application.routes.draw do
   match '/signup',              to: 'users#new'
   match '/signin',              to: 'sessions#new'
   match '/signout',             to: 'sessions#destroy', via: :delete
-  
+  match '/feed',                to: 'entries#feed', defaults: { format: 'atom'}
+  match '/find',                to: 'categories#find'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

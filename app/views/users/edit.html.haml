@@ -1,8 +1,11 @@
 - provide(:title, @title)
-%h1 Update your profile
+.col-lg-offset-2
+  %h1 Update your profile
 
 = form_for @user, html: {class: 'form-horizontal', role: 'form'} do |f| 
   = render 'fields', f: f
   .form-group
     .col-lg-offset-2.col-lg-10
-      = f.submit "Save changes", class: "btn btn-default"
+      = f.submit 'Save changes', class: 'btn btn-primary'
+      \-or-
+      = f.submit 'Cancel', data: { confirm: "All changes will be lost.  Are you sure?" }, class: 'btn btn-default btn-sm'
