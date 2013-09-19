@@ -1,7 +1,13 @@
-%div
-  %h3= link_to entry.title, entry
-  %small
-    posted
-    = time_ago_in_words(entry.created_at)
-    ago...
-  %p= raw truncate(entry.content, length: 140, separator: ' ')
+.well.highlightable
+  %h2
+    = link_to entry.title, entry
+    %small
+      posted
+      = time_ago_in_words(entry.created_at)
+      ago by
+      = entry.user.first_name
+  %p= truncate(strip_tags(entry.content), length: 140, separator: ' ')
+  %p
+    Categories:
+    - entry.categories.each do |t| 
+      = t.name

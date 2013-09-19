@@ -1,7 +1,7 @@
 - provide(:title, @entry.title)
 .row
   .col-xs-12.col-md-9
-    %h1 %h1= @entry.title
+    %h1= @entry.title
   .col-xs-4.col-md-3
     .pull-right
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
@@ -9,18 +9,22 @@
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 %p
   %small
+    posted
+    = time_ago_in_words(@entry.created_at)
+    ago
     - if @entry.updated_at > @entry.created_at
-      updated
-      = time_ago_in_words(@entry.updated_at)
-      ago
-    - else
-      posted
-      = time_ago_in_words(@entry.created_at)
-      ago
+      %br
+      %b
+        (updated
+        = time_ago_in_words(@entry.updated_at)
+        ago) 
 .row
-  .col-xs-12.col-md-10= raw @entry.content
+  .col-xs-12.col-md-10
+    .well
+      = raw @entry.content
   .col-xs-6.col-md-2
-    %ul= render @categories
+    %h4 Categories
+    %ul.categories= render @categories
 
 :javascript
   $('li.blog').addClass('active');

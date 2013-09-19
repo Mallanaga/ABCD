@@ -1,7 +1,9 @@
 html, body {
   height: 100%;
   .wrapper { min-height: 100%; }
-  header {  }
+  header {
+
+  }
   footer {
     margin: -72px auto 0 auto;
   }
@@ -9,7 +11,6 @@ html, body {
     padding-bottom: 90px;
   }
 }
-
 
 body {
   padding-top: 70px;
@@ -21,6 +22,17 @@ body {
 
 .gothic {
   font-family: Century Gothic, sans-serif;
+}
+
+.highlightable {
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  transition: background-color 0.2s; 
+  &:hover {
+    background: #e3e3e3;
+  }
 }
 
 .flat_link {

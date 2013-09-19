@@ -12,6 +12,22 @@ class DesignsController < ApplicationController
     end
   end
 
+  def destroy
+    Design.find(params[:id]).destroy
+    flash[:success] = "Design destroyed."
+    redirect_to designs_url
+  end
+
+  def edit
+    @title = 'Edit design'
+    @design = Design.find(params[:id])
+  end
+  
+  def index
+    @title = 'Designs'
+    @designs = Design.page(params[:page]).per(10)
+  end
+
   def new
     @title = 'New design'
     @design = Design.new
@@ -20,22 +36,6 @@ class DesignsController < ApplicationController
   def show
     @design = Design.find(params[:id])
     @categories = @design.categories
-  end
-
-  def edit
-    @title = 'Edit design'
-    @design = Design.find(params[:id])
-  end
-
-  def destroy
-    Design.find(params[:id]).destroy
-    flash[:success] = "Design destroyed."
-    redirect_to designs_url
-  end
-
-  def index
-    @title = 'Designs'
-    @designs = Design.page(params[:page]).per(10)
   end
 
   def update

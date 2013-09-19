@@ -26,9 +26,11 @@ class EntriesController < ApplicationController
 
   def feed
     # this will be the name of the feed displayed on a feed reader
-    @title = 'ABC D'
+    @bTitle = 'Alphabetic Blog. Ideas, as simple as ABC.'
+    @dTitle = 'Alphabetic Designs. Ideas, all the way to XYZ.'
     # the blog entries
     @entries = Entry.limit(10)
+    @designs = Design.limit(5)
     # this will be the feed's update timestamp
     @updated = @entries.first.updated_at unless @entries.empty?
 

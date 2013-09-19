@@ -1,6 +1,11 @@
-%div
-  %h3= link_to design.name, design
-  %small
-    published on
-    = design.published_at
-  %p= raw truncate(design.description, length: 140, separator: ' ')
+.well.highlightable
+  %h2
+    = link_to design.name, design
+    %small
+      published on
+      = design.published_at.to_formatted_s :long_ordinal
+  %p= truncate(strip_tags(design.description), length: 140, separator: ' ')
+  %p
+    Categories:
+    - design.categories.each do |t| 
+      = t.name

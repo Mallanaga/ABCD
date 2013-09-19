@@ -9,18 +9,15 @@
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 %p
   %small
-    - if @design.updated_at > @design.created_at
-      updated
-      = time_ago_in_words(@design.updated_at)
-      ago
-    - else
-      posted
-      = time_ago_in_words(@design.created_at)
-      ago
+    published on
+    = @design.published_at.to_formatted_s :long_ordinal
 .row
-  .col-xs-12.col-md-10= raw @design.description
+  .col-xs-12.col-md-10
+    .well
+      = raw @design.description
   .col-xs-6.col-md-2
-    %ul= render @categories
+    %h4 Categories
+    %ul.categories= render @categories
 
 :javascript
   $('li.designs').addClass('active');
