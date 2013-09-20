@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_filter :signed_in_user,     only: [:create, :destroy, :feed]
+  before_filter :signed_in_user,     only: [:create, :destroy, :update]
   before_filter :check_for_cancel,   only: [:create, :update]
   before_filter :correct_user,       only: [:edit, :update, :destroy]
 
