@@ -1,5 +1,5 @@
 atom_feed language: 'en-US', schema_date: 2013 do |feed|
-  feed.title @btitle
+  feed.title @title
   feed.updated @updated
 
   @entries.each do |e|
