@@ -9,9 +9,10 @@
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 %p
   %small
-    posted
-    = time_ago_in_words(@entry.created_at)
-    ago
+    posted on
+    = @entry.created_at.to_date.to_formatted_s :long_ordinal
+    around
+    = @entry.created_at.strftime('%I%P')
     - if @entry.updated_at > @entry.created_at
       %br
       %b
@@ -25,6 +26,9 @@
   .col-xs-6.col-md-2
     %h4 Categories
     %ul.categories= render @categories
+    %h4 Related entries
+    %ul.categories
+      = render partial: 'entries/related', collection: @related
 
 :javascript
   $('li.blog').addClass('active');

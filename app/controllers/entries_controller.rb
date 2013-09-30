@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
 
   def feed
     # this will be the name of the feed displayed on a feed reader
-    @title = 'Alphabetic Designs. Ideas, as simple as ABC all the way to XYZ.'
+    @title = 'Alphabetic Design. Ideas, as simple as ABC all the way to XYZ.'
     # the blog entries
     @entries = Entry.limit(10)
     @designs = Design.limit(5)
@@ -54,6 +54,8 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @categories = @entry.categories
+    tags = @categories.map {|c| c.name}
+    @related = Entry.joins(:categories).where('categories.name' => tags).reject {|d| d.id == @entry.id}.uniq
   end
 
   def update

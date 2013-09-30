@@ -36,6 +36,8 @@ class DesignsController < ApplicationController
   def show
     @design = Design.find(params[:id])
     @categories = @design.categories
+    tags = @categories.map {|c| c.name}
+    @related = Design.joins(:categories).where('categories.name' => tags).reject {|d| d.id == @design.id}.uniq
   end
 
   def update

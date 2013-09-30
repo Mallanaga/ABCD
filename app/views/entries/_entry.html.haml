@@ -1,4 +1,4 @@
-.well.highlightable
+%li.well.highlightable
   %h2
     = link_to entry.title, entry
     %small
@@ -7,7 +7,7 @@
       ago by
       = entry.user.first_name
   %p= truncate(strip_tags(entry.content), length: 140, separator: ' ')
-  %p
+  %p.bottom
     Categories:
     - entry.categories.each do |t| 
       = t.name

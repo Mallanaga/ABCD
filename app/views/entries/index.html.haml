@@ -11,7 +11,7 @@
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 .row
   .col-xs-12.col-md-12
-    = render @entries
+    %ul= render @entries
 
 = paginate @entries
 

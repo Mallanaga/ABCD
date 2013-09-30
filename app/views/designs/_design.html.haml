@@ -1,11 +1,11 @@
-%li.highlightable
+%li.well.picBack{style: "background-image: url(#{design.photo_url})"}
   %h2
     = link_to design.name, design
     %small
-      published on
-      = design.published_at.to_formatted_s :long_ordinal
+      published in
+      = design.published_at.strftime('%B of %Y')
   %p= truncate(strip_tags(design.description), length: 140, separator: ' ')
-  %p
+  %p.bottom
     Categories:
     - design.categories.each do |t| 
       = t.name

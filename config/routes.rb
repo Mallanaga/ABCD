@@ -13,6 +13,7 @@ ABCD::Application.routes.draw do
   end
 
   root                          to: 'pages#home'
+  match '/test',                to: 'pages#test'
   match '/about',               to: 'pages#about'
   match '/contact',             to: 'pages#contact'
   match '/signup',              to: 'users#new'

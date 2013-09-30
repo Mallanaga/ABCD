@@ -25,6 +25,7 @@ body {
 }
 
 .highlightable {
+  position: relative;
   -webkit-transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
@@ -33,6 +34,28 @@ body {
   &:hover {
     background: #e3e3e3;
   }
+}
+
+.picBack {
+  position: relative;
+  background: no-repeat;
+  -webkit-filter: grayscale(100%) blur(2px);
+  -moz-filter: grayscale(100%) blur(2px);
+  -ms-filter: grayscale(100%) blur(2px);
+  -o-filter: grayscale(100%) blur(2px);
+  filter: grayscale(100%) blur(2px);
+  &:hover {
+    -webkit-filter: grayscale(0%) blur(0px);
+    -moz-filter: grayscale(0%) blur(0px);
+    -ms-filter: grayscale(0%) blur(0px);
+    -o-filter: grayscale(0%) blur(0px);
+    filter: grayscale(0%) blur(0px);
+  }
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0px;
 }
 
 .flat_link {

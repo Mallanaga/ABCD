@@ -4,8 +4,8 @@
   = f.label :name
   = f.text_field :name, class: 'form-control'
 .form-group
-  = f.label :published_at
-  = f.date_select :published_at, class: 'form-control'
+  = f.label :published_at, 'Published in'
+  = f.date_select :published_at, class: 'form-control', discard_day: true, order: [:month, :year]
 .form-group
   = f.label :description
   = f.text_area :description, class: 'form-control'
