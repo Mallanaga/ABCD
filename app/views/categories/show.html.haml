@@ -1,12 +1,12 @@
-- provide(:title, @category)
+- provide(:title, @category.name)
 
-%h1= "Things of interest for '#{@category.capitalize}'"
+%h1= "Things of interest for '#{@category.name}'"
 .row
   .col-xs-6.col-md-6
     %h2 Blog entries
-    %ul= render @entries
+    %ul.thumbnails= render @entries
   .col-xs-6.col-md-6
     %h2 Designs
-    %ul= render @designs
+    %ul.thumbnails= render @designs
 
 //need to find a way to paginate these bastards
