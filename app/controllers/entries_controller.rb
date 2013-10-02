@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.build(params[:entry])
     if @entry.save
-      @entry.first_image
+      #@entry.first_image
       flash[:success] = 'Blog entry created'
       redirect_to entries_path
     else
@@ -65,7 +65,7 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update_attributes(params[:entry])
-      @entry.first_image
+      #@entry.first_image
       flash[:success] = 'Blog entry updated'
       redirect_to @entry
     else
