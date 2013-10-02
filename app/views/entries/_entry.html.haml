@@ -6,7 +6,7 @@
       = time_ago_in_words(entry.created_at)
       ago by
       = entry.user.first_name
-  %p= truncate(strip_tags(entry.content), length: 200, separator: ' ')
+  %p= raw truncate(strip_tags(entry.content), length: 500, separator: ' ')
   %p.bottom
     - if entry.categories
       Categories:

@@ -18,4 +18,10 @@ module ApplicationHelper
     end
   end
 
+  def parse_links(comment)
+    auto_link(comment, html: {target: '_blank'}) do |text|
+      URI.parse(text).host
+    end
+  end
+
 end

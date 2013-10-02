@@ -23,6 +23,8 @@ class Design < ActiveRecord::Base
   validates :name, presence: true
   validates :content, presence: true
 
+  default_scope order: 'designs.published_at DESC'
+
   def category_tokens=(tokens)
     self.category_ids = Category.ids_from_tokens(tokens)
   end

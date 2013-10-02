@@ -12,11 +12,10 @@
     published in
     = @design.published_at.strftime('%B of %Y')
 .row
-  .col-xs-6.col-md-8.well
-    //- if !@design.photo_url.blank?
-    //= image_tag(@design.photo_url, class: 'first-image img-responsive')
+  .col-xs-6.col-md-8.well.bigger
     = raw @design.content
   .col-xs-6.col-md-4
+    %h2{style: "margin-top:0px;"}= parse_links(@design.url)
     %h3{style: "margin-top:0px;"} Categories
     %ul.categories= render @categories
 %hr
