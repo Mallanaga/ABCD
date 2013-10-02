@@ -17,11 +17,11 @@ ul.categories {
     a {
       color: #777;
       width: 100%;
-      -webkit-transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      -moz-transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      -o-transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      -ms-transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      -webkit-transition: font-size 0.3s ease, background 0.3s ease, color 0.3s ease;
+      -moz-transition: font-size 0.3s ease, background 0.3s ease, color 0.3s ease;
+      -o-transition: font-size 0.3s ease, background 0.3s ease, color 0.3s ease;
+      -ms-transition: font-size 0.3s ease, background 0.3s ease, color 0.3s ease;
+      transition: font-size 0.3s ease, background 0.3s ease, color 0.3s ease;
       &:hover {
         color: #333;
         font-size: 1.5em;
@@ -48,3 +48,21 @@ ul.thumbnails {
   }
 }
  
+.blur {
+  position: relative;
+  background: no-repeat;
+  -webkit-transition: -webkit-filter 1.0s;
+  -moz-transition: -moz-filter 1.0s;
+  -webkit-filter: grayscale(100%) blur(2px);
+  -moz-filter: grayscale(100%) blur(2px);
+  -ms-filter: grayscale(100%) blur(2px);
+  -o-filter: grayscale(100%) blur(2px);
+  filter: grayscale(100%) blur(2px);
+  &:hover {
+    -webkit-filter: grayscale(0%) blur(0px);
+    -moz-filter: grayscale(0%) blur(0px);
+    -ms-filter: grayscale(0%) blur(0px);
+    -o-filter: grayscale(0%) blur(0px);
+    filter: grayscale(0%) blur(0px);
+  }
+}

@@ -46,7 +46,7 @@
                     %li
                       = link_to 'Edit entry', edit_entry_path
                     %li
-                      = link_to 'Delete entry', @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
+                      = link_to 'Delete entry', @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.name}'?" }
                   - if signed_in?
                     %li
                       = link_to 'Add comment', '#'
@@ -54,7 +54,7 @@
                 - elsif action_name == 'edit'
                   - if admin?
                     %li
-                      = link_to 'Delete entry', @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.title}'?" }
+                      = link_to 'Delete entry', @entry, method: :delete, data: { confirm: "You're sure you want to DELETE the entry '#{@entry.name}'?" }
                     %li.divider
               - elsif controller_name == 'designs'
                 - if action_name == 'index'

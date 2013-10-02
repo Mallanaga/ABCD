@@ -1,5 +1,4 @@
 - provide(:title, @title)
-
 .row
   .col-xs-12.col-md-9
     %h1 Ideas, as simple as ABC
@@ -10,8 +9,9 @@
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 .row
-  .col-xs-12.col-md-12
-    %ul= render @entries
+  .col-xs-6.col-md-9
+    %ul.thumbnails= render @entries
+  .col-xs-6.col-md-3
 
 = paginate @entries
 

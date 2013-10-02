@@ -1,13 +1,13 @@
-%li.well.highlightable
+%li.well.blur{style: "background-image: url(#{entry.photo_url})"}
   %h2
-    = link_to entry.title, entry
+    = link_to entry.name, entry
     %small
       posted
       = time_ago_in_words(entry.created_at)
       ago by
       = entry.user.first_name
-  %p= truncate(strip_tags(entry.content), length: 140, separator: ' ')
+  %p= truncate(strip_tags(entry.content), length: 200, separator: ' ')
   %p.bottom
-    Categories:
-    - entry.categories.each do |t| 
-      = t.name
+    - if entry.categories
+      Categories:
+      = entry.categories.map{ |c| c.name }.to_sentence

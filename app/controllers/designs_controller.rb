@@ -5,21 +5,25 @@ class DesignsController < ApplicationController
   def create
     @design = Design.new(params[:design])
     if @design.save
-      flash[:success] = "Design created."
+      #@design.first_image
+      flash[:success] = "Design created"
       redirect_to designs_url
     else
       render 'designs/new'
     end
+  rescue Timeout::Error
+    flash[:alert] = "#{$!}"
+    render 'designs/new'
   end
 
   def destroy
     Design.find(params[:id]).destroy
-    flash[:success] = "Design destroyed."
+    flash[:success] = "Design deleted"
     redirect_to designs_url
   end
 
   def edit
-    @title = 'Edit design'
+    @title = 'Edit Design'
     @design = Design.find(params[:id])
   end
   
@@ -29,7 +33,7 @@ class DesignsController < ApplicationController
   end
 
   def new
-    @title = 'New design'
+    @title = 'New Design'
     @design = Design.new
   end
 
@@ -41,12 +45,17 @@ class DesignsController < ApplicationController
   end
 
   def update
+    @design = Design.find(params[:id])
     if @design.update_attributes(params[:design])
-      flash[:success] = "Design updated."
+      #@design.first_image
+      flash[:success] = "Design updated"
       redirect_to @design
     else
       render 'designs/edit'
     end
+  rescue Timeout::Error
+    flash[:alert] = "#{$!}"
+    render 'designs/edit'
   end
 
   private

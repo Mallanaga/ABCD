@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 3efe9030d6adc5848566a07f37d4ffc1c76c6b97
+  revision: 24e9ee8edfb0b810fb2ba4f33169773b49c6fb83
   specs:
-    anjlab-bootstrap-rails (3.0.0.2)
+    anjlab-bootstrap-rails (3.0.0.3)
       railties (>= 3.0)
       sass (>= 3.2)
 
@@ -56,7 +56,6 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
-    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     carrierwave (0.9.0)
@@ -76,10 +75,9 @@ GEM
     daemons (1.1.9)
     diff-lcs (1.1.3)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
     excon (0.25.3)
-    execjs (2.0.1)
+    execjs (2.0.2)
     fog (1.15.0)
       builder
       excon (~> 0.25.0)
@@ -115,8 +113,6 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
-    nokogiri (1.6.0)
-      mini_portile (~> 0.5.0)
     nokogiri (1.6.0-x86-mingw32)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
@@ -161,7 +157,7 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.11.0)
     ruby-hmac (0.4.0)
-    sass (3.2.10)
+    sass (3.2.11)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -204,6 +200,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap!
   mini_magick!
+  nokogiri
   pg (~> 0.16.0)
   rails (= 3.2.12)
   rspec-rails (= 2.11.0)

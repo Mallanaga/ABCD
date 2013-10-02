@@ -1,8 +1,8 @@
 - provide(:title, @design.name)
 .row
-  .col-xs-12.col-md-9
+  .col-md-9
     %h1= @design.name
-  .col-xs-4.col-md-3
+  .col-md-3
     .pull-right
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
@@ -12,15 +12,19 @@
     published in
     = @design.published_at.strftime('%B of %Y')
 .row
-  .col-xs-12.col-md-10
-    .well
-      = raw @design.description
-  .col-xs-6.col-md-2
-    %h4 Categories
+  .col-xs-6.col-md-8.well
+    //- if !@design.photo_url.blank?
+    //= image_tag(@design.photo_url, class: 'first-image img-responsive')
+    = raw @design.content
+  .col-xs-6.col-md-4
+    %h3{style: "margin-top:0px;"} Categories
     %ul.categories= render @categories
-    %h4 Related designs
+%hr
+.row
+  .col-md-8.col-md-offset-2.well
+    %h3{style: "margin-top:0px;"} Related Designs
     %ul.categories
-      = render partial: 'designs/related', collection: @related
+      = render partial: 'categories/related', collection: @related
 
 :javascript
   $('li.designs').addClass('active');

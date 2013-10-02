@@ -24,35 +24,6 @@ body {
   font-family: Century Gothic, sans-serif;
 }
 
-.highlightable {
-  position: relative;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
-  -ms-transition: background-color 0.2s;
-  transition: background-color 0.2s; 
-  &:hover {
-    background: #e3e3e3;
-  }
-}
-
-.picBack {
-  position: relative;
-  background: no-repeat;
-  -webkit-filter: grayscale(100%) blur(2px);
-  -moz-filter: grayscale(100%) blur(2px);
-  -ms-filter: grayscale(100%) blur(2px);
-  -o-filter: grayscale(100%) blur(2px);
-  filter: grayscale(100%) blur(2px);
-  &:hover {
-    -webkit-filter: grayscale(0%) blur(0px);
-    -moz-filter: grayscale(0%) blur(0px);
-    -ms-filter: grayscale(0%) blur(0px);
-    -o-filter: grayscale(0%) blur(0px);
-    filter: grayscale(0%) blur(0px);
-  }
-}
-
 .bottom {
   position: absolute;
   bottom: 0px;
@@ -77,6 +48,13 @@ body {
   }  
 }
 
+.first-image {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
 #camera {
   position: relative;
   -webkit-perspective: 800px;
@@ -94,13 +72,13 @@ body {
     margin: 0 auto;
     height: 400px;
     width: 400px;
-    -webkit-transition: -webkit-transform 2s linear;
+    -webkit-transition: -webkit-transform 1s;
     -webkit-transform-style: preserve-3d;
-    -moz-transition: -moz-transform 2s linear;
+    -moz-transition: -moz-transform 1s;
     -moz-transform-style: preserve-3d;
-    -ms-transition: -ms-transform 2s linear;
+    -ms-transition: -ms-transform 1s;
     -ms-transform-style: preserve-3d;
-    -o-transition: -o-transform 2s linear;
+    -o-transition: -o-transform 1s;
     -o-transform-style: preserve-3d;
     
     .face {
@@ -179,6 +157,7 @@ body {
   }
   .cube-arrow {
     max-height: 40px;
+    cursor: pointer;
   }
 }
 
@@ -186,6 +165,11 @@ body {
   margin-top: 20px;
   width: 40px;
   background: url('/assets/social.png') 0px 0px;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
   &:hover {
     background: url('/assets/social.png') 0px -40px;
   }
@@ -194,6 +178,11 @@ body {
   margin-top: 20px;
   width: 40px;
   background: url('/assets/social.png') 120px 0px;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
   &:hover {
     background: url('/assets/social.png') 120px -40px;
   }
@@ -202,6 +191,11 @@ body {
   margin-top: 20px;
   width: 40px;
   background: url('/assets/social.png') 80px 0px;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
   &:hover {
     background: url('/assets/social.png') 80px -40px;
   }
@@ -210,7 +204,25 @@ body {
   margin-top: 20px;
   width: 40px;
   background: url('/assets/social.png') 40px 0px;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
   &:hover {
     background: url('/assets/social.png') 40px -40px;
   }
+}
+
+.pad-right {
+  padding-right: 20px;
+}
+.pad-left {
+  padding-left: 20px;
+}
+.pad-top {
+  padding-top: 20px;
+}
+.pad-bottom {
+  padding-bottom: 20px;
 }

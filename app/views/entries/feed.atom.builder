@@ -5,7 +5,7 @@ atom_feed language: 'en-US', schema_date: 2013 do |feed|
   @entries.each do |e|
     next if e.updated_at.blank?
     feed.entry e do |entry|
-      entry.title e.title
+      entry.title e.name
       entry.summary e.summary.blank? ? truncate("#{strip_tags(e.content)}", length: 140, separator: ' ') : strip_tags(e.summary)
       entry.content e.content, type: 'html'
       entry.author do |author|
@@ -22,8 +22,8 @@ atom_feed language: 'en-US', schema_date: 2013 do |feed|
     next if d.updated_at.blank?
     feed.entry d do |entry|
       entry.title d.name
-      entry.summary truncate("#{strip_tags(d.description)}", length: 140, separator: ' ')
-      entry.content d.description, type: 'html'
+      entry.summary truncate("#{strip_tags(d.content)}", length: 140, separator: ' ')
+      entry.content d.content, type: 'html'
       entry.author do |author|
         author.name User.first.name
       end

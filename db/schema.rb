@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(:version => 20130916210322) do
   end
 
   create_table "ckeditor_assets", :force => true do |t|
-    t.string   "data_file_name",                  :null => false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    :limit => 30
-    t.string   "type",              :limit => 30
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.string    "data_file_name",                  :null => false
+    t.string    "data_content_type"
+    t.integer   "data_file_size"
+    t.integer   "assetable_id"
+    t.string    "assetable_type",    :limit => 30
+    t.string    "type",              :limit => 30
+    t.integer   "width"
+    t.integer   "height"
+    t.timestamp "created_at",                      :null => false
+    t.timestamp "updated_at",                      :null => false
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20130916210322) do
 
   create_table "designs", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "content"
     t.string   "url"
     t.string   "photo_url"
     t.date     "published_at"
@@ -45,16 +45,20 @@ ActiveRecord::Schema.define(:version => 20130916210322) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "designs", ["name"], :name => "index_designs_on_name"
+  add_index "designs", ["published_at"], :name => "index_designs_on_published_at"
+
   create_table "entries", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "name"
     t.text     "summary"
     t.text     "content"
+    t.date     "photo_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "entries", ["title"], :name => "index_entries_on_title"
+  add_index "entries", ["name"], :name => "index_entries_on_name"
   add_index "entries", ["updated_at"], :name => "index_entries_on_updated_at"
 
   create_table "tags", :force => true do |t|

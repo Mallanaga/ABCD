@@ -16,6 +16,7 @@ gem 'fog'
 gem 'mini_magick', github: 'minimagick/minimagick', ref: 'de72f6c83506059b3bb213ef19134f02f9404fcc'
 gem 'kaminari'
 gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap', ref: '1271c3a'
+gem 'nokogiri'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

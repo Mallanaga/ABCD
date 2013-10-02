@@ -1,8 +1,8 @@
-- provide(:title, @entry.title)
+- provide(:title, @entry.name)
 .row
-  .col-xs-12.col-md-9
-    %h1= @entry.title
-  .col-xs-4.col-md-3
+  .col-md-9
+    %h1= @entry.name
+  .col-md-3
     .pull-right
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
@@ -20,15 +20,17 @@
         = time_ago_in_words(@entry.updated_at)
         ago) 
 .row
-  .col-xs-12.col-md-10
-    .well
-      = raw @entry.content
-  .col-xs-6.col-md-2
-    %h4 Categories
+  .col-xs-6.col-md-8.well
+    = raw @entry.content
+  .col-xs-6.col-md-4
+    %h3{style: "margin-top:0px;"} Categories
     %ul.categories= render @categories
-    %h4 Related entries
+%hr
+.row
+  .col-md-8.col-md-offset-2.well
+    %h3{style: "margin-top:0px;"} Related Blog entries
     %ul.categories
-      = render partial: 'entries/related', collection: @related
+      = render partial: 'categories/related', collection: @related
 
 :javascript
   $('li.blog').addClass('active');

@@ -2,11 +2,11 @@
 
 %h1= "Things of interest for '#{@category.capitalize}'"
 .row
-  .col-md-6
+  .col-xs-6.col-md-6
     %h2 Blog entries
-    = render @entries
-  .col-md-6
+    %ul= render @entries
+  .col-xs-6.col-md-6
     %h2 Designs
-    = render @designs
+    %ul= render @designs
 
 //need to find a way to paginate these bastards

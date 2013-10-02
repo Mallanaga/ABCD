@@ -6,21 +6,25 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.build(params[:entry])
     if @entry.save
-      flash[:success] = 'Entry created'
+      @entry.first_image
+      flash[:success] = 'Blog entry created'
       redirect_to entries_path
     else
-      flash[:error] = 'Something went wrong there... try again'
+      render 'entries/new'
     end
+  rescue Timeout::Error
+    flash[:alert] = "#{$!}"
+    render 'entries/new'
   end
 
   def destroy
     Entry.find(params[:id]).destroy
-    flash[:success] = 'Entry deleted'
+    flash[:success] = 'Blog entry deleted'
     redirect_to entries_path
   end
 
   def edit
-    @title = 'Edit Entry'
+    @title = 'Edit Blog'
     @entry = Entry.find(params[:id])
   end
 
@@ -47,7 +51,7 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @title = 'New Entry'
+    @title = 'New Blog'
     @entry = Entry.new
   end
 
@@ -61,12 +65,15 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     if @entry.update_attributes(params[:entry])
-      flash[:success] = 'Entry updated'
+      @entry.first_image
+      flash[:success] = 'Blog entry updated'
       redirect_to @entry
     else
-      flash[:error] = 'Something went wrong there... try again'
       render 'entries/edit'
     end
+  rescue Timeout::Error
+    flash[:alert] = "#{$!}"
+    render 'entries/edit'
   end
 
   private

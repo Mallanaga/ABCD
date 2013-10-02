@@ -1,11 +1,11 @@
-%li.well.picBack{style: "background-image: url(#{design.photo_url})"}
+%li.well.blur{style: "background-image: url(#{design.photo_url})"}
   %h2
     = link_to design.name, design
     %small
       published in
       = design.published_at.strftime('%B of %Y')
-  %p= truncate(strip_tags(design.description), length: 140, separator: ' ')
+  %p= truncate(strip_tags(design.content), length: 200, separator: ' ')
   %p.bottom
-    Categories:
-    - design.categories.each do |t| 
-      = t.name
+    - if !design.categories.blank?
+      Categories:
+      = design.categories.map{ |c| c.name }.to_sentence

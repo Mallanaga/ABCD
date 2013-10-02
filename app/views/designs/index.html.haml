@@ -1,5 +1,4 @@
 - provide(:title, @title)
-
 .row
   .col-xs-12.col-md-9
     %h1 Ideas, all the way to XYZ
@@ -10,7 +9,7 @@
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
 .row
-  .col-xs-12.col-md-9
+  .col-xs-6.col-md-9
     %ul.thumbnails= render @designs
   .col-xs-6.col-md-3
 
