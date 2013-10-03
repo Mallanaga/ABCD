@@ -33,6 +33,11 @@ body {
   text-align: center;
 }
 
+.ror {
+  max-height: 172px;
+  margin: 10px;
+}
+
 .flat_link {
   &:link { // unvisited links
     color: #333;
