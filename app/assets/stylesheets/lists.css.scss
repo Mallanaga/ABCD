@@ -8,6 +8,10 @@ ul {
   }
 }
 
+li.users a {
+  display: inline;
+}
+
 ul.categories {
   li {
     border-bottom: 1px solid #e3e3e3;

@@ -8,7 +8,7 @@ module SessionsHelper
   end
 
   def admin?
-    !current_user.nil?  && current_user.id == 1
+    !current_user.nil?  && [1,2].include?(current_user.id)
   end
 
   def sign_in(user)

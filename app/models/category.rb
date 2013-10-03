@@ -16,7 +16,7 @@ class Category < ActiveRecord::Base
   has_many :designs, through: :tags, source: :taggable, source_type: 'Design'
 
   def self.tokens(query)
-    filter_query = query.gsub(/[^a-zA-Z&\s]/, '')
+    filter_query = query.gsub(/[^a-zA-Z0-9&\s]/, '')
     filter_query = filter_query.strip.downcase
     categories = Rails.env.development? ? Category.where("LOWER(name) LIKE ?", "%#{filter_query}%") : Category.where("LOWER(name) ILIKE ?", "%#{filter_query}%")
     categories << {id: "<<<#{query}>>>", name: "New: \"#{filter_query}\""}

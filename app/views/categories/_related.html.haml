@@ -1,2 +1,2 @@
 %li
-  = link_to "#{related.name} - #{related.updated_at.strftime('%m/%y')}", related
+  = link_to "#{related.name} - #{related.attributes.has_key?('published_at') ? related.published_at.strftime('%m/%y') : related.updated_at.strftime('%m/%y')}", related
