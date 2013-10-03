@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
     if @tag
       redirect_to @tag
     else
-      flash[:error] = "Nothing with '#{params[:find]}'. Try one of these"
+      flash[:notice] = "Nothing with '#{params[:find]}'. Try one of these"
       redirect_to categories_url
     end
   end

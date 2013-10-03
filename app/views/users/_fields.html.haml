@@ -2,13 +2,13 @@
 
 .form-group
   = f.label :name, class: 'col-lg-2 control-label'
-  .col-lg-10
-    = f.text_field :name
+  .col-lg-8
+    = f.text_field :name, class: 'form-control'
 .form-group
   = f.label :email, class: 'col-lg-2 control-label'
-  .col-lg-10
-    = f.text_field :email
+  .col-lg-8
+    = f.text_field :email, class: 'form-control'
 .form-group
   = f.label :password, class: 'col-lg-2 control-label'
-  .col-lg-10
-    = f.password_field :password
+  .col-lg-8
+    = f.password_field :password, class: 'form-control'
