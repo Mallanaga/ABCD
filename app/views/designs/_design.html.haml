@@ -1,10 +1,10 @@
 %li.well.blur{style: "background-image: url(#{design.photo_url})"}
-  %h2
+  %h2.well
     = link_to design.name, design
     %small
       published in
       = design.published_at.strftime('%B of %Y')
-  %p= raw truncate(strip_tags(design.content), length: 500, separator: ' ')
+  %p= raw truncate(strip_tags(design.content), length: 300, separator: ' ')
   %p.bottom
     - if !design.categories.blank?
       Categories:

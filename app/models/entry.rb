@@ -34,7 +34,8 @@ class Entry < ActiveRecord::Base
   end
 
   def first_image
-    doc = Nokogiri::HTML(open("http://localhost:3000/entries/#{self.id}"))
-    self.update_attribute(:photo_url, doc.at_css('.well img')['src'])
+    doc = Nokogiri::HTML(open("http://localhost:3000/blog/#{self.id}"))
+    image = doc.css('.well img')[0] ? doc.css('.well img')[0]['src'] : nil
+    self.update_attribute(:photo_url, image)
   end
 end

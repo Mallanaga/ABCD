@@ -5,7 +5,11 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+    - set_meta_tags viewport: 'width=device-width, initial-scale=1.0'
+    - @tags ? @tags << %w[abcd alphabetic design ruby rails javascript jQuery SASS HAML web development] : nil
+    - set_meta_tags keywords: @tags
+    - set_meta_tags canonical: request.host_with_port
+    = display_meta_tags
     = render 'layouts/shim'
     = auto_discovery_link_tag :atom, '/feed'
     = auto_discovery_link_tag :rss, '/feed'

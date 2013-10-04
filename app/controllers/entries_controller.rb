@@ -46,8 +46,14 @@ class EntriesController < ApplicationController
   end
 
   def index
+    @tags = %w[articles blog]
     @title = 'Blog'
     @entries = Entry.page(params[:page]).per(10)
+    set_meta_tags og: {
+      title: 'Alphabetic Ideas',
+      type: 'website',
+      url: "#{request.host_with_port}/blog"
+    }
   end
 
   def new
@@ -58,8 +64,23 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @categories = @entry.categories
-    tags = @categories.map {|c| c.name}
-    @related = Entry.joins(:categories).where('categories.name' => tags).reject {|d| d.id == @entry.id}.uniq
+    @tags = @categories.map {|c| c.name}
+    @related = Entry.joins(:categories).where('categories.name' => @tags).reject {|d| d.id == @entry.id}.uniq
+    #@doc = Nokogiri::HTML(open(design_url(@design)))
+    #images = @doc.css('.well img') ? @doc.css('.well img').map{ |i| i['src'] } : []
+    set_meta_tags og: {
+      title: @entry.name,
+      type: 'article',
+      url: entry_url(@entry),
+      image: @entry.photo_url, #will need to be images array eventually
+      article: {
+        published_time: @entry.created_at.to_datetime,
+        modified_time: @entry.updated_at.to_datetime,
+        author: 'Alphabetic Design',
+        section: 'Blog',
+        tag: @tags
+      }
+    }
   end
 
   def update

@@ -1,12 +1,12 @@
 %li.well.blur{style: "background-image: url(#{entry.photo_url})"}
-  %h2
+  %h2.well
     = link_to entry.name, entry
     %small
       posted
       = time_ago_in_words(entry.created_at)
       ago by
       = entry.user.first_name
-  %p= raw truncate(strip_tags(entry.content), length: 500, separator: ' ')
+  %p= raw truncate(strip_tags(entry.content), length: 300, separator: ' ')
   %p.bottom
     - if entry.categories
       Categories:
