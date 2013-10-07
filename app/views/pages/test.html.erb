@@ -12,13 +12,18 @@
     httpRequest.open('GET', path);
     httpRequest.send(); 
   }
+  function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
 
   // this requires the file and executes a callback with the parsed result once available
   fetchJSONFile('http://www.ecorebox.com/companies/1/snippet.json', function(data){
     // do what you do
-    var trees = data['trees'];
-    var water = data['water'];
-    var energy = data['electricity'];
+    var trees = numberWithCommas(data['trees']);
+    var water = numberWithCommas(data['water']);
+    var energy = numberWithCommas(data['electricity']);
     var widget = document.createElement("div");
     widget.id = 'erb_widget';
     widget.style.width = "200px";
