@@ -14,7 +14,7 @@
   }
 
   // this requires the file and executes a callback with the parsed result once available
-  fetchJSONFile('http://ecorebox.com/companies/1/snippet.json', function(data){
+  fetchJSONFile('http://www.ecorebox.com/companies/1/snippet.json', function(data){
     // do what you do
     var trees = data['trees'];
     var water = data['water'];
@@ -29,7 +29,7 @@
     widget.style.border = 'solid 1px #666';
     var logo = document.createElement("div");
     logo.id = 'erbw_logo';
-    logo.style.background = "url(http://ecorebox.com/assets/narrow_200px_logo.png) no-repeat";
+    logo.style.background = "url(http://www.ecorebox.com/assets/narrow_200px_logo.png) no-repeat";
     logo.style.height = '29px';
     logo.style.width = '109px';
     logo.style.margin = '20px auto';
@@ -39,19 +39,19 @@
     txt.style.margin = '5px';
     var cs_trees = document.createElement("div");
     cs_trees.id = 'erbw_cs_trees';
-    cs_trees.style.background = "url(http://ecorebox.com/assets/erbw_ico_tree.png) no-repeat";
+    cs_trees.style.background = "url(http://www.ecorebox.com/assets/erbw_ico_tree.png) no-repeat";
     cs_trees.style.height = '61px';
     cs_trees.style.margin = '20px';
     cs_trees.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold;'><span style='font: 22px bolder'>" + trees + "</span><br/>Trees Saved</div>";
     var cs_water = document.createElement("div");
     cs_water.id = 'erbw_cs_water';
-    cs_water.style.background = "url(http://ecorebox.com/assets/erbw_ico_water.png) no-repeat";
+    cs_water.style.background = "url(http://www.ecorebox.com/assets/erbw_ico_water.png) no-repeat";
     cs_water.style.height = '61px';
     cs_water.style.margin = '20px';
     cs_water.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold;'><span style='font: 22px bolder'>" + water + "</span><br/>Gallons of Water Conserved</div>";
     var cs_energy = document.createElement("div");
     cs_energy.id = 'erbw_cs_energy';
-    cs_energy.style.background = "url(http://ecorebox.com/assets/erbw_ico_energy.png) no-repeat";
+    cs_energy.style.background = "url(http://www.ecorebox.com/assets/erbw_ico_energy.png) no-repeat";
     cs_energy.style.height = '61px';
     cs_energy.style.margin = '20px';
     cs_energy.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold;'><span style='font: 22px bolder'>" + energy + "</span><br/>kWh Energy Saved</div>";
