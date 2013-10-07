@@ -1,4 +1,14 @@
 .row
   .col-md-8.col-md-offset-2
-    %h1.center Contact us
-    %p.bigger.well= mail_to 'info@alphabeticdesign.com', 'info@alphabeticdesign.com', subject: 'Alphabetic inquiry', target: '_blank'
+    %h1.center Contact information
+    %p.bigger
+      Feel free to contact Alphabetic Design for all of your design needs.  Web design is our focus, but we can offer a fresh eye on whatever project you have in mind.
+    %p.bigger
+      Check out some of our
+      = link_to 'Designs', designs_path
+      to see what else we've worked on!
+    %br
+    .bigger.center
+      San Diego, CA
+      %address.bigger.center
+        = mail_to 'info@alphabeticdesign.com', 'info@alphabeticdesign.com', subject: 'Alphabetic inquiry', target: '_blank'

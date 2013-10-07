@@ -27,7 +27,6 @@
   %p.bigger
     So, if you don't know, and you somehow came across this site on your thirst for ocean water, Ruby is a programming language.  Language.  Complete with nouns, verbs, adjectives... Rails is a framework.  Let's compare Ruby to a dog.  Dogs can learn tricks, or actions, right?  Rails (or other frameworks like codeignitor or django) is like a bag of tricks for Ruby.  Specifically a bag of tricks for web development.  I digress.  This is about Alphabetic Design, not RoR!  Although it is what allows me to do the things I do...
   %p.bigger
-    = link_to image_tag('dory.png', alt: 'Dory', class: 'img-responsive'), 'http://www.pixar.com/features_films/FINDING-NEMO', target: '_blank', class: 'pull-left', title: "Dory from Pixar's Finding Nemo"
     So, I dove into the ocean.  I went through 
     = link_to "Michael Hartl's Tutorial", 'http://ruby.railstutorial.org/chapters/beginning', target: '_blank'
     on the topic, and started swimming.  Well, doggy paddling, at best.  Dory, from Pixar's Finding Nemo, said it best.  "Just keep swimming.  Just keep swimming, swimming..."  Sound advice for everything you do.  Thanks, Dory!
@@ -35,10 +34,11 @@
     A few years later, and I have a handful of websites under my belt, but I just want to do more and more.  I've picked up a few other floaty toys along the way, too!  jQuery was a must.  It makes selecting DOM elements so much easier than pure javascript, and it has all kinds of cool tricks (as it's a framework for .js, after all).  HAML and SASS came pretty naturally, as they're kind of written for Rails.  CoffeeScript was soon to follow, but I don't use it as consistantly as I could.  Backwards compatibility is something I check for occasionally, but I try to stick with HTML5 and CSS3.
   %p.bigger
     Be sure to check out some
-    = link_to 'Designs', designs_url
+    = link_to 'Designs', designs_path
     while you're here.  You might find some
-    = link_to 'Blog', entries_url
-    posts interesting too!
+    = link_to 'Blog', entries_path
+    posts interesting too.  If you'd like some work done,
+    = link_to 'Contact us!', contact_path
 .row
   .col-md-4.col-md-offset-4
     %h1.center The Team

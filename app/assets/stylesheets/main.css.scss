@@ -101,59 +101,69 @@ body {
     background: url('/assets/social.png') 40px -40px;
   }
 }
-#a img {
-  margin: 10px;
-  height: 400px;
-  background: url('/assets/a.jpg') 400px 0px;
-  -webkit-transition: background 0.5s;
-  -moz-transition: background 0.5s;
-  -ms-transition: background 0.5s;
-  -o-transition: background 0.5s;
-  transition: background 0.5s;
-  &:hover {
-    background: url('/assets/a.jpg') 0px 0px;
+.letter {
+  padding: 0 0.7%;
+  #a img {
+    margin: 2%;
+    width: 100%;
+    background: url('/assets/a.jpg') 100% 0px no-repeat;
+    background-size: cover;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -ms-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    &:hover {
+      background: url('/assets/a.jpg') 0% 0px no-repeat;
+      background-size: cover;
+    }
+  }
+  #b img {
+    margin: 2%;
+    width: 100%;
+    background: url('/assets/b.jpg') 0px 100% no-repeat;
+    background-size: cover;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -ms-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    &:hover {
+      background: url('/assets/b.jpg') 0px 0% no-repeat;
+      background-size: cover;
+    }
+  }
+  #c img {
+    margin: 2%;
+    width: 100%;
+    background: url('/assets/c.jpg') 0px 0% no-repeat;
+    background-size: cover;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -ms-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    &:hover {
+      background: url('/assets/c.jpg') 0px 100% no-repeat;
+      background-size: cover;
+    }
+  }
+  #d img {
+    margin: 2%;
+    width: 100%;
+    background: url('/assets/d.jpg') 0% 0px no-repeat;
+    background-size: cover;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -ms-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    &:hover {
+      background: url('/assets/d.jpg') 100% 0px no-repeat;
+      background-size: cover;
+    }
   }
 }
-#b img {
-  margin: 10px;
-  width: 400px;
-  background: url('/assets/b.jpg') 0px 400px;
-  -webkit-transition: background 0.5s;
-  -moz-transition: background 0.5s;
-  -ms-transition: background 0.5s;
-  -o-transition: background 0.5s;
-  transition: background 0.5s;
-  &:hover {
-    background: url('/assets/b.jpg') 0px 0px;
-  }
-}
-#c img {
-  margin: 10px;
-  width: 400px;
-  background: url('/assets/c.jpg') 0px 0px;
-  -webkit-transition: background 0.5s;
-  -moz-transition: background 0.5s;
-  -ms-transition: background 0.5s;
-  -o-transition: background 0.5s;
-  transition: background 0.5s;
-  &:hover {
-    background: url('/assets/c.jpg') 0px 400px;
-  }
-}
-#d img {
-  margin: 10px;
-  height: 400px;
-  background: url('/assets/d.jpg') 0px 0px;
-  -webkit-transition: background 0.5s;
-  -moz-transition: background 0.5s;
-  -ms-transition: background 0.5s;
-  -o-transition: background 0.5s;
-  transition: background 0.5s;
-  &:hover {
-    background: url('/assets/d.jpg') 400px 0px;
-  }
-}
-
 .pad-right {
   padding-right: 20px;
 }

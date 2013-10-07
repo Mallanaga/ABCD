@@ -1,13 +1,10 @@
 .row
-  .col-md-5.col-md-offset-1
-    = link_to image_tag('hold.gif', alt: 'A', class: 'img-responsive'), about_path, title: 'About', id: 'a'
-  .col-md-5
-    = link_to image_tag('hold.gif', alt: 'B', class: 'img-responsive'), entries_path, title: 'Blog', id: 'b'
-%br
-%br
-%br
+  .col-xs-4.col-sm-4.col-md-4.col-lg-4.col-md-offset-2.letter
+    = link_to image_tag('hold.gif', alt: 'A'), about_path, title: 'About', id: 'a'
+  .col-xs-4.col-sm-4.col-md-4.col-lg-4.letter
+    = link_to image_tag('hold.gif', alt: 'B'), entries_path, title: 'Blog', id: 'b'
 .row
-  .col-md-5.col-md-offset-1
-    = link_to image_tag('hold.gif', alt: 'C', class: 'img-responsive'), contact_path, title: 'Contact', id: 'c'
-  .col-md-5
-    = link_to image_tag('hold.gif', alt: 'D', class: 'img-responsive'), designs_path, title: 'Designs', id: 'd'
+  .col-xs-4.col-sm-4.col-md-4.col-lg-4.col-md-offset-2.letter
+    = link_to image_tag('hold.gif', alt: 'C'), contact_path, title: 'Contact', id: 'c'
+  .col-xs-4.col-sm-4.col-md-4.col-lg-4.letter
+    = link_to image_tag('hold.gif', alt: 'D'), designs_path, title: 'Designs', id: 'd'
