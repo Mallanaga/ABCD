@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  // JSON parser
   function fetchJSONFile(path, callback) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
@@ -12,6 +13,7 @@
     httpRequest.open('GET', path);
     httpRequest.send(); 
   }
+  // formatting helper
   function numberWithCommas(x) {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -19,47 +21,55 @@
   }
 
   // this requires the file and executes a callback with the parsed result once available
-  fetchJSONFile('http://www.ecorebox.com/companies/1/snippet.json', function(data){
-    // do what you do
+  fetchJSONFile('http://www.ecorebox.com/companies/3/snippet.json', function(data){
+    // resource savings
     var trees = numberWithCommas(data['trees']);
     var water = numberWithCommas(data['water']);
     var energy = numberWithCommas(data['electricity']);
+
+    // this builds all the divs
     var widget = document.createElement("div");
     widget.id = 'erb_widget';
     widget.style.width = "200px";
     widget.style.height = "400px";
-    widget.style.font = '14px';
     widget.style.src = "local('Oswald Light'), local('Oswald-Light'), url(http://themes.googleusercontent.com/static/fonts/oswald/v7/HqHm7BVC_nzzTui2lzQTDT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff')";
+    widget.style.fontFamily = 'Oswald, sans-serif';
     widget.style.color = '#666';
     widget.style.border = 'solid 1px #666';
+
     var logo = document.createElement("div");
     logo.id = 'erbw_logo';
     logo.style.background = "url(http://www.ecorebox.com/assets/narrow_200px_logo.png) no-repeat";
     logo.style.height = '29px';
     logo.style.width = '109px';
     logo.style.margin = '20px auto';
+
     var txt = document.createElement("div");
     txt.id = 'erbw_txt';
-    txt.style.font = 'bold 13px';
+    txt.style.font = 'bold 13px inherit';
     txt.style.margin = '5px';
+
     var cs_trees = document.createElement("div");
     cs_trees.id = 'erbw_cs_trees';
     cs_trees.style.background = "url(http://www.ecorebox.com/assets/erbw_ico_tree.png) no-repeat";
     cs_trees.style.height = '61px';
     cs_trees.style.margin = '20px';
-    cs_trees.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold;'><span style='font: 22px bolder'>" + trees + "</span><br/>Trees Saved</div>";
+    cs_trees.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold inherit;'><span style='font: 22px bolder'>" + trees + "</span><br/>Trees Saved</div>";
+
     var cs_water = document.createElement("div");
     cs_water.id = 'erbw_cs_water';
     cs_water.style.background = "url(http://www.ecorebox.com/assets/erbw_ico_water.png) no-repeat";
     cs_water.style.height = '61px';
     cs_water.style.margin = '20px';
-    cs_water.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold;'><span style='font: 22px bolder'>" + water + "</span><br/>Gallons of Water Conserved</div>";
+    cs_water.innerHTML = "<div style='margin: 12px auto auto 52px; font: 14px bold inherit;'><span style='font: 22px bolder'>" + water + "</span><br/>Gallons of Water Conserved</div>";
+    
     var cs_energy = document.createElement("div");
     cs_energy.id = 'erbw_cs_energy';
     cs_energy.style.background = "url(http://www.ecorebox.com/assets/erbw_ico_energy.png) no-repeat";
     cs_energy.style.height = '61px';
     cs_energy.style.margin = '20px';
-    cs_energy.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold;'><span style='font: 22px bolder'>" + energy + "</span><br/>kWh Energy Saved</div>";
+    cs_energy.innerHTML = "<div style='margin: 12px auto auto 62px; font: 14px bold inherit;'><span style='font: 22px bolder'>" + energy + "</span><br/>kWh Energy Saved</div>";
+    
     var footer = document.createElement("div");
     footer.id = 'erbw_footer';
     footer.style.font = 'bolder 14px';
@@ -68,14 +78,15 @@
     footer.style.margin = '10px';
     footer.innerHTML = "Learn more at<br/><a href='http://www.ecorebox.com' target='_blank'>www.ecorebox.com</a><br/>(877) REBOX IT";
 
-    // this appends the div to the site.  will be different for each client
+    // this appends the main widget div to the site.  will be different for each client.  this has to happen first, or #erb_widget is null
     $('.content').append(widget);
+
+    // this appends each of the children divs to the main widget
     document.getElementById('erb_widget').appendChild(logo);
     document.getElementById('erb_widget').appendChild(txt);
     document.getElementById('erb_widget').appendChild(cs_trees);
     document.getElementById('erb_widget').appendChild(cs_water);
     document.getElementById('erb_widget').appendChild(cs_energy);
     document.getElementById('erb_widget').appendChild(footer);
-
   });
 </script>
