@@ -12,9 +12,9 @@ atom_feed language: 'en-US', schema_date: 2013 do |feed|
         author.name e.user.name
       end
       e.categories.map {|c| c.name}.each do |t|
-        entry.category term: t, label: t, scheme: 'alphabeticdesign.com'
+        entry.category term: t, label: t, scheme: request.host_with_port
       end
-      entry.category term: 'blog', label: 'blog', scheme: 'alphabeticdesign.com'
+      entry.category term: 'blog', label: 'blog', scheme: request.host_with_port
     end # end feed.entry
   end # end @entries.each
 
@@ -28,9 +28,9 @@ atom_feed language: 'en-US', schema_date: 2013 do |feed|
         author.name User.first.name
       end
       d.categories.map {|c| c.name}.each do |t|
-        entry.category term: t, label: t, scheme: 'alphabeticdesign.com'
+        entry.category term: t, label: t, scheme: request.host_with_port
       end
-      entry.category term: 'design', label: 'design', scheme: 'alphabeticdesign.com'
+      entry.category term: 'design', label: 'design', scheme: request.host_with_port
     end # end feed.entry
   end # end @designs.each
 end
