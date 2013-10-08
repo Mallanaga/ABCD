@@ -6,7 +6,7 @@ atom_feed language: 'en-US', schema_date: 2013 do |feed|
     next if e.updated_at.blank?
     feed.entry e do |entry|
       entry.title e.name
-      entry.summary e.summary.blank? ? truncate("#{strip_tags(e.content)}", length: 140, separator: ' ') : strip_tags(e.summary)
+      entry.summary e.summary.blank? ? truncate("#{strip_tags(e.content)}", length: 140, separator: ' ') : strip_tags(e.summary), type: 'html'
       entry.content e.content, type: 'html'
       entry.author do |author|
         author.name e.user.name
@@ -22,7 +22,7 @@ atom_feed language: 'en-US', schema_date: 2013 do |feed|
     next if d.updated_at.blank?
     feed.entry d do |entry|
       entry.title d.name
-      entry.summary truncate("#{strip_tags(d.content)}", length: 140, separator: ' ')
+      entry.summary truncate("#{strip_tags(d.content)}", length: 140, separator: ' '), type: 'html'
       entry.content d.content, type: 'html'
       entry.author do |author|
         author.name User.first.name
