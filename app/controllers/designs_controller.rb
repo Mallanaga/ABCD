@@ -1,20 +1,16 @@
 class DesignsController < ApplicationController
-
-  before_filter :check_for_cancel,   only: [:create, :update]
   before_filter :signed_in_user,     only: [:create, :destroy, :update]
+  before_filter :check_for_cancel,   only: [:create, :update]
   
   def create
+    params[:design][:photo_url] = Nokogiri::HTML(params[:design][:content]).css('img').map{ |i| i['src']}[0]
     @design = Design.new(params[:design])
     if @design.save
-      #@design.first_image
       flash[:success] = "Design created"
       redirect_to designs_url
     else
       render 'designs/new'
     end
-  rescue Timeout::Error
-    flash[:alert] = "#{$!}"
-    render 'designs/new'
   end
 
   def destroy
@@ -49,13 +45,11 @@ class DesignsController < ApplicationController
     @categories = @design.categories
     @tags = @categories.map {|c| c.name}
     @related = Design.joins(:categories).where('categories.name' => @tags).reject {|d| d.id == @design.id}.uniq
-    #@doc = Nokogiri::HTML(open(design_url(@design)))
-    #images = @doc.css('.well img') ? @doc.css('.well img').map{ |i| i['src'] } : []
     set_meta_tags og: {
       title: @design.name,
       type: 'article',
       url: design_url(@design),
-      image: @design.photo_url, #will need to be images array eventually
+      image: Nokogiri::HTML(@design.content).css('img').map{ |i| i['src']},
       article: {
         published_time: @design.published_at.to_datetime,
         modified_time: @design.updated_at.to_datetime,
@@ -68,16 +62,13 @@ class DesignsController < ApplicationController
 
   def update
     @design = Design.find(params[:id])
+    params[:design][:photo_url] = Nokogiri::HTML(params[:design][:content]).css('img').map{ |i| i['src']}[0]
     if @design.update_attributes(params[:design])
-      #@design.first_image
       flash[:success] = "Design updated"
       redirect_to @design
     else
       render 'designs/edit'
     end
-  rescue Timeout::Error
-    flash[:alert] = "#{$!}"
-    render 'designs/edit'
   end
 
   private

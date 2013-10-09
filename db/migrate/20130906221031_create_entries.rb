@@ -5,7 +5,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :name
       t.text :summary
       t.text :content
-      t.date :photo_url
+      t.string :photo_url
       
       t.timestamps
     end

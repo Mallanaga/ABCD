@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916210322) do
+ActiveRecord::Schema.define(:version => 20131009093053) do
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "name"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(:version => 20130916210322) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "designs", :force => true do |t|
-    t.string   "name"
-    t.text     "content"
-    t.string   "url"
-    t.string   "photo_url"
-    t.date     "published_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string    "name"
+    t.text      "content"
+    t.string    "url"
+    t.string    "photo_url"
+    t.date      "published_at"
+    t.timestamp "created_at",   :null => false
+    t.timestamp "updated_at",   :null => false
   end
 
   add_index "designs", ["name"], :name => "index_designs_on_name"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130916210322) do
     t.string   "name"
     t.text     "summary"
     t.text     "content"
-    t.date     "photo_url"
+    t.string   "photo_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -62,22 +62,22 @@ ActiveRecord::Schema.define(:version => 20130916210322) do
   add_index "entries", ["updated_at"], :name => "index_entries_on_updated_at"
 
   create_table "tags", :force => true do |t|
-    t.string   "taggable_type"
-    t.integer  "taggable_id"
-    t.integer  "category_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string    "taggable_type"
+    t.integer   "taggable_id"
+    t.integer   "category_id"
+    t.timestamp "created_at",    :null => false
+    t.timestamp "updated_at",    :null => false
   end
 
   add_index "tags", ["category_id"], :name => "index_tags_on_category_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string    "name"
+    t.string    "email"
+    t.string    "password_digest"
+    t.string    "remember_token"
+    t.timestamp "created_at",      :null => false
+    t.timestamp "updated_at",      :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -4,17 +4,14 @@ class EntriesController < ApplicationController
   before_filter :correct_user,       only: [:edit, :update, :destroy]
 
   def create
+    params[:entry][:photo_url] = Nokogiri::HTML(params[:entry][:content]).css('img').map{ |i| i['src']}[0]
     @entry = current_user.entries.build(params[:entry])
     if @entry.save
-      #@entry.first_image
       flash[:success] = 'Blog entry created'
       redirect_to entries_path
     else
       render 'entries/new'
     end
-  rescue Timeout::Error
-    flash[:alert] = "#{$!}"
-    render 'entries/new'
   end
 
   def destroy
@@ -29,6 +26,7 @@ class EntriesController < ApplicationController
   end
 
   def feed
+    @tags = []
     # this will be the name of the feed displayed on a feed reader
     @title = 'Alphabetic Design. Ideas, as simple as ABC all the way to XYZ.'
     # the blog entries
@@ -66,13 +64,11 @@ class EntriesController < ApplicationController
     @categories = @entry.categories
     @tags = @categories.map {|c| c.name}
     @related = Entry.joins(:categories).where('categories.name' => @tags).reject {|d| d.id == @entry.id}.uniq
-    #@doc = Nokogiri::HTML(open(design_url(@design)))
-    #images = @doc.css('.well img') ? @doc.css('.well img').map{ |i| i['src'] } : []
     set_meta_tags og: {
       title: @entry.name,
       type: 'article',
       url: entry_url(@entry),
-      image: @entry.photo_url, #will need to be images array eventually
+      image: Nokogiri::HTML(@entry.content).css('img').map{ |i| i['src']},
       article: {
         published_time: @entry.created_at.to_datetime,
         modified_time: @entry.updated_at.to_datetime,
@@ -85,16 +81,13 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.find(params[:id])
+    params[:entry][:photo_url] = Nokogiri::HTML(params[:entry][:content]).css('img').map{ |i| i['src']}[0]
     if @entry.update_attributes(params[:entry])
-      #@entry.first_image
       flash[:success] = 'Blog entry updated'
       redirect_to @entry
     else
       render 'entries/edit'
     end
-  rescue Timeout::Error
-    flash[:alert] = "#{$!}"
-    render 'entries/edit'
   end
 
   private

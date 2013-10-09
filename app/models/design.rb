@@ -29,9 +29,4 @@ class Design < ActiveRecord::Base
     self.category_ids = Category.ids_from_tokens(tokens)
   end
 
-  def first_image
-    @doc = Nokogiri::HTML(open("http://localhost:3000/designs/#{self.id}"))
-    image = @doc.css('.well img')[0] ? @doc.css('.well img')[0]['src'] : nil
-    self.update_attribute(:photo_url, image)
-  end
 end
