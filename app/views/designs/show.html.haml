@@ -1,20 +1,20 @@
 - provide(:title, @design.name)
 .row
-  .col-md-9
+  .col-md-9.col-sm-12.col-xs-12
     %h1= @design.name
-  .col-md-3
-    .pull-right.social
+    %p
+      %small
+        published in
+        = @design.published_at.strftime('%B of %Y')
+  .col-md-3.col-sm-12.col-xs-12
+    .social
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
       = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
-%p
-  %small
-    published in
-    = @design.published_at.strftime('%B of %Y')
 .row
-  .col-xs-6.col-md-8.well.bigger
+  .col-lg-9.col-md-8.col-sm-12.col-xs-12.well.bigger
     = raw @design.content
-  .col-xs-6.col-md-4
+  .col-lg-3.col-md-4.col-sm-12.col-xs-12
     %h2{style: "margin-top:0px;"}= parse_links(@design.url)
     %h3{style: "margin-top:0px;"} Categories
     %ul.categories= render @categories
