@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def find
-    @tag = Category.find_by_name(params[:find].downcase)
+    @tag = Rails.env.development? ? Category.where("LOWER(name) LIKE ?", "%#{params[:find]}%")[0] : Category.where("LOWER(name) ILIKE ?", "%#{params[:find]}%")[0]
     if @tag
       redirect_to @tag
     else

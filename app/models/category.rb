@@ -15,6 +15,9 @@ class Category < ActiveRecord::Base
   has_many :entries, through: :tags, source: :taggable, source_type: 'Entry'
   has_many :designs, through: :tags, source: :taggable, source_type: 'Design'
 
+  validates :name, presence: true,
+                   uniqueness: {case_sensitive: false}
+
   def self.tokens(query)
     filter_query = query.gsub(/[^a-zA-Z0-9&\s]/, '')
     filter_query = filter_query.strip.downcase
