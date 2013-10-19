@@ -78,7 +78,9 @@
     footer.style.margin = '10px';
     footer.innerHTML = "Learn more at<br/><a href='http://www.ecorebox.com' target='_blank'>www.ecorebox.com</a><br/>(877) REBOX IT";
 
-    // this appends the main widget div to the site.  will be different for each client.  this has to happen first, or #erb_widget is null
+    /* this appends the main widget div to the site.  will be different for each client.  this has to happen first, or #erb_widget is null.
+
+    also, this is using jQuery by default, ta add the widget to a div class of content.  if you're not using jQuery, then use your favorite flavor of selector. */
     $('.content').append(widget);
 
     // this appends each of the children divs to the main widget

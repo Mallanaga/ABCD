@@ -5,9 +5,9 @@
   .col-xs-4.col-md-3
     .pull-right.social
       = link_to image_tag('hold.gif'), feed_url, target: '_blank', id: 'rss', title: 'Atom/RSS feed'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
+      = link_to image_tag('hold.gif'), "https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape(designs_url)}", target: '_blank', id: 'facebook', title: 'Facebook'
+      = link_to image_tag('hold.gif'), "https://twitter.com/intent/tweet?via=mallanaga&amp;url=#{CGI.escape(designs_url)}&amp;text=Alphabetic%20#{@title}", target: '_blank', id: 'twitter', title: 'Twitter'
+      = link_to image_tag('hold.gif'), "http://www.reddit.com/submit?url=#{designs_url}&amp;title=Alphabetic%20#{@title}", target: '_blank', id: 'reddit', title: 'Reddit'
 .row
   .col-xs-6.col-md-9
     %ul.thumbnails= render @designs

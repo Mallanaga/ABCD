@@ -8,9 +8,9 @@
         = @design.published_at.strftime('%B of %Y')
   .col-md-3.col-sm-12.col-xs-12
     .social
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
+      = link_to image_tag('hold.gif'), "https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape(design_url(@design))}", target: '_blank', id: 'facebook', title: 'Facebook'
+      = link_to image_tag('hold.gif'), "https://twitter.com/intent/tweet?via=mallanaga&amp;url=#{CGI.escape(design_url(@design))}&amp;text=#{CGI.escape(@design.name)}", target: '_blank', id: 'twitter', title: 'Twitter'
+      = link_to image_tag('hold.gif'), "http://www.reddit.com/submit?url=#{designs_url(@design)}&amp;title=#{@design.name}", target: '_blank', id: 'reddit', title: 'Reddit'
 .row
   .col-lg-9.col-md-8.col-sm-12.col-xs-12.well.bigger
     = raw @design.content

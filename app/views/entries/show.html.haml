@@ -16,9 +16,9 @@
             ago) 
   .col-md-3.col-sm-12.col-xs-12
     .social
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'facebook', title: 'Facebook'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'twitter', title: 'Twitter'
-      = link_to image_tag('hold.gif'), '#', target: '_blank', id: 'reddit', title: 'Reddit'
+      = link_to image_tag('hold.gif'), "https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape(entry_url(@entry))}", target: '_blank', id: 'facebook', title: 'Facebook'
+      = link_to image_tag('hold.gif'), "https://twitter.com/intent/tweet?via=mallanaga&amp;url=#{CGI.escape(entry_url(@entry))}&amp;text=#{CGI.escape(@entry.name)}", target: '_blank', id: 'twitter', title: 'Twitter'
+      = link_to image_tag('hold.gif'), "http://www.reddit.com/submit?url=#{entry_url(@entry)}&amp;title=#{@entry.name}", target: '_blank', id: 'reddit', title: 'Reddit'
 .row
   .col-lg-9.col-md-8.col-sm-12.col-xs-12.well.bigger
     = raw @entry.content
