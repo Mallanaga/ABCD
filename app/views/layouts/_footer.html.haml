@@ -1,8 +1,8 @@
 %footer.container
   %nav.navbar.navbar-default{role: 'navigation'}
     // Brand and toggle get grouped for better mobile display
-    %div.navbar-footer
-      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+    .navbar-footer
+      = button_tag data: {target: '#navbar-2-collapse', toggle: 'collapse'}, class: 'navbar-toggle' do
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
@@ -10,7 +10,7 @@
       = link_to "ABC D &copy; #{Date.today.strftime('%Y')}".html_safe, root_url, class: 'navbar-brand impact'
 
     // Collect the nav links, forms, and other content for toggling
-    %div.collapse.navbar-collapse.navbar-ex1-collapse
+    .collapse.navbar-collapse#navbar-2-collapse
       %ul.nav.navbar-nav
         %li
           = link_to 'About', about_url

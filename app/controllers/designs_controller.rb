@@ -31,7 +31,7 @@ class DesignsController < ApplicationController
     set_meta_tags og: {
       title: 'Alphabetic Designs',
       type: 'website',
-      url: "#{request.host_with_port}/designs"
+      url: designs_url
     }
   end
 

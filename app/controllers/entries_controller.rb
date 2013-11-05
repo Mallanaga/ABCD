@@ -50,7 +50,7 @@ class EntriesController < ApplicationController
     set_meta_tags og: {
       title: 'Alphabetic Ideas',
       type: 'website',
-      url: "#{request.host_with_port}/blog"
+      url: entries_url
     }
   end
 
